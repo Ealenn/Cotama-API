@@ -13,10 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::group(['middleware' => 'auth:api'], function () {
+Route::group(['middleware' => 'auth:api'], function () {
 
     // Users
-    Route::resource('users', 'UsersAPIController');
+    Route::get('users', 'UsersAPIController@index');
+    Route::get('users/{id}', 'UsersAPIController@show')->where('id', '[0-9]+');
+    Route::match(['put', 'patch'], 'users', 'UsersAPIController@update');
 
+});
 
-//});
+// Add User
+Route::post('users', 'UsersAPIController@store');
