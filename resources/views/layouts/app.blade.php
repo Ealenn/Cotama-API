@@ -26,7 +26,7 @@
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
 
     <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
-    <link rel="stylesheet" href="/CotamaAPI/public/css/front.min.css" />
+    <link rel="stylesheet" href="/css/front.min.css" />
 
 </head>
 
@@ -34,6 +34,6 @@
 
     @yield('content')
 
-    <script src="/CotamaAPI/public/js/front.min.js"></script>
+    <script src="/js/front.min.js"></script>
 </body>
 </html>
