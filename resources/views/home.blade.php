@@ -29,7 +29,7 @@
 
             <div class="col-md-10 col-md-offset-1">
                 <div class="hero-content text-center">
-                    <h1>Cotama c'est <span id="js-rotating">Simple, Drôle, Pratique, Ludique, Fun, Amusant</span> !</h1>
+                    <h1>@lang('views/home.header-title') <span id="js-rotating">@lang('views/home.header-words')</span> !</h1>
                     <p class="intro">Qui a dit que le ménage devait être une corvée ?<br>Transformer les tâches ménagères en jeu amusant et ludique tout en répartissant les tâches de manière équitable, juste et de façon non répétitive !</p>
                 </div>
             </div>

@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Routing\Router;
+use Illuminate\Http\Request;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,8 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -33,41 +33,59 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function map()
+    public function map(Router $router, Request $request)
     {
-        $this->mapApiRoutes();
+        $locale = $request->segment(1);
 
-        $this->mapWebRoutes();
-
-        //
+        if (array_key_exists($locale, $this->app->config->get('app.locales'))) {
+            $this->app->setLocale($locale);
+            $router->group(['namespace' => $this->namespace, 'prefix' => $locale], function($router) {
+                $this->mapApiRoutes(false);
+                $this->mapWebRoutes(false);
+            });
+        } else {
+            $this->mapApiRoutes();
+            $this->mapWebRoutes();
+        }
     }
 
     /**
      * Define the "web" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
-     *
+     * @param $isNamespaced bool
      * @return void
      */
-    protected function mapWebRoutes()
+    protected function mapWebRoutes($isNamespaced = true)
     {
-        Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+        if($isNamespaced){
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web.php'));
+        } else {
+            Route::middleware('web')
+                ->group(base_path('routes/web.php'));
+        }
     }
 
     /**
      * Define the "api" routes for the application.
      *
      * These routes are typically stateless.
-     *
+     * @param $isNamespaced bool
      * @return void
      */
-    protected function mapApiRoutes()
+    protected function mapApiRoutes($isNamespaced = true)
     {
-        Route::prefix('api')
+        if($isNamespaced){
+            Route::prefix('api')
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+        } else {
+            Route::prefix('api')
+             ->middleware('api')
+             ->group(base_path('routes/api.php'));
+        }
     }
 }
