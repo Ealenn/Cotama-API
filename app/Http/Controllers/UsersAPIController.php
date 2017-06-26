@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Users\UserGetRequest;
+use App\Http\Requests\Users\UserPutRequest;
+use App\Http\Requests\Users\UserSaveRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,27 +26,24 @@ class UsersAPIController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Users\UserSaveRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserSaveRequest $request)
     {
-        try{
-            $user = new User(\Illuminate\Support\Facades\Request::all());
-            $user->save();
-            return response()->json($user);
-        } catch (\Illuminate\Database\QueryException $e){
-            return response(response()->json(['error' => 'Already exists.']), 409);
-        }
+        $user = new User(\Illuminate\Support\Facades\Request::all());
+        $user->save();
+        return response()->json($user);
     }
 
     /**
      * Display the specified resource.
      *
+     * @param  \App\Http\Requests\Users\UserGetRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(UserGetRequest $request, $id)
     {
         return response()->json(User::findOrFail($id));
     }
@@ -51,13 +51,13 @@ class UsersAPIController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Users\UserPutRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserPutRequest $request)
     {
         $user = $request->user();
-        $user->fill(\Illuminate\Support\Facades\Request::all());
+        $user->fill($request->all());
         $user->save();
         return $user;
     }
