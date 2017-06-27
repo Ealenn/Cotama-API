@@ -79,12 +79,12 @@ class RouteServiceProvider extends ServiceProvider
     {
         if($isNamespaced){
             Route::prefix('api')
-             ->middleware('api')
+             ->middleware(['api', 'cors'])
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
         } else {
             Route::prefix('api')
-             ->middleware('api')
+             ->middleware(['api', 'cors'])
              ->group(base_path('routes/api.php'));
         }
     }
