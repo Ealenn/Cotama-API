@@ -194,7 +194,9 @@ class FoyersAPITest extends PassportTestCase
     public function testGetFoyerJoinConnected()
     {
         $foyer = factory(Foyer::class)->create();
-        $response = $this->get('/api/foyer/join/' . $foyer->key);
+        $response = $this->post('/api/foyer/join/', [
+            'key' => $foyer->key
+        ]);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -204,10 +206,12 @@ class FoyersAPITest extends PassportTestCase
     public function testGetFoyerJoinErrorConnected()
     {
         $foyer = factory(Foyer::class)->create();
-        $response = $this->get('/api/foyer/join/' . $foyer->key . '9');
+        $response = $this->post('/api/foyer/join/', [
+            'key' => $foyer->key . 'T'
+        ]);
         $json = json_decode($response->getContent());
 
-        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertEquals(403, $response->getStatusCode());
         $this->assertEquals(false, Foyer::isInFoyer($this->user, $foyer));
     }
 }

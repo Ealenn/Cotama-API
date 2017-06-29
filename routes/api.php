@@ -21,12 +21,12 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     // Foyer
     Route::get('foyer', 'Foyers\FoyerAPIController@index');
-    Route::get('foyer/{foyer}', 'Foyers\FoyerAPIController@show')->where('id', '[0-9]+');
+    Route::get('foyer/{foyer}', 'Foyers\FoyerAPIController@show')->where('foyer', '[0-9]+');
     Route::post('foyer', 'Foyers\FoyerAPIController@store');
     Route::match(['put', 'patch'], 'foyer/{foyer}', 'Foyers\FoyerAPIController@update');
 
     // FoyerUser
-    Route::get('foyer/join/{key}', 'Foyers\FoyerUserAPIController@store');
+    Route::post('foyer/join', 'Foyers\FoyerUserAPIController@store');
 });
 
 // Add User

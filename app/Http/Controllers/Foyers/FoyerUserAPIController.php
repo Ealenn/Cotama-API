@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Foyers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Foyers\FoyerJoinRequest;
 use App\Models\Foyers\Foyer;
 use Illuminate\Http\Request;
 
@@ -12,14 +13,16 @@ class FoyerUserAPIController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param $request
-     * @param $key String : Foyer Key
+     * @param \App\Http\Requests\Foyers\FoyerJoinRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $key)
+    public function store(FoyerJoinRequest $request)
     {
-        $Foyer = Foyer::where('key', $key)->firstOrFail();
-        Foyer::addUserFoyer($request->user(), $Foyer);
-        return response()->json($Foyer);
+        Foyer::addUserFoyer(
+            $request->user(),
+            $request->Foyer
+        );
+
+        return response()->json($request->Foyer);
     }
 }
