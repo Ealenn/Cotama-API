@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('foyer/{foyer}', 'Foyers\FoyerAPIController@show')->where('id', '[0-9]+');
     Route::post('foyer', 'Foyers\FoyerAPIController@store');
     Route::match(['put', 'patch'], 'foyer/{foyer}', 'Foyers\FoyerAPIController@update');
+
+    // FoyerUser
+    Route::get('foyer/join/{key}', 'Foyers\FoyerUserAPIController@store');
 });
 
 // Add User

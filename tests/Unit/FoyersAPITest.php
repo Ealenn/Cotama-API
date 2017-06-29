@@ -186,103 +186,28 @@ class FoyersAPITest extends PassportTestCase
     }
 
     /*
-    public function testPutUserWithConnection()
+     * -----------------------------
+     *          ADD USER FOYER
+     * -----------------------------
+     *
+     */
+    public function testGetFoyerJoinConnected()
     {
-        $user = factory(User::class)->make();
-        $arrayUser = [
-            'pseudo' => $user->pseudo,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-        ];
-
-        $response = $this->put('/api/users', $arrayUser);
+        $foyer = factory(Foyer::class)->create();
+        $response = $this->get('/api/foyer/join/' . $foyer->key);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertEquals($user->pseudo, $json->pseudo);
+        $this->assertEquals(true, Foyer::isInFoyer($this->user, $foyer));
     }
 
-    public function testPutUserWithFakeEmail()
+    public function testGetFoyerJoinErrorConnected()
     {
-        $arrayUser = [
-            'email' => 'gfds@gfds',
-        ];
-
-        $response = $this->put('/api/users', $arrayUser);
-
-        $this->assertEquals(422, $response->getStatusCode());
-    }
-
-    /*
-     * -----------------------------
-     *          REGISTER
-     * -----------------------------
-
-
-    public function testRegister()
-    {
-        $user = factory(User::class)->make();
-        $arrayUser = [
-            'pseudo' => $user->pseudo,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email,
-            'password' => $user->password
-        ];
-
-        $response = $this->call('POST', '/api/users', $arrayUser);
+        $foyer = factory(Foyer::class)->create();
+        $response = $this->get('/api/foyer/join/' . $foyer->key . '9');
         $json = json_decode($response->getContent());
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(404, $response->getStatusCode());
+        $this->assertEquals(false, Foyer::isInFoyer($this->user, $foyer));
     }
-
-    public function testRegisterFakeEmail()
-    {
-        $user = factory(User::class)->make();
-        $arrayUser = [
-            'pseudo' => $user->pseudo,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => 'r.r.r@',
-            'password' => $user->password
-        ];
-
-        $response = $this->call('POST', '/api/users', $arrayUser);
-        $json = json_decode($response->getContent());
-
-        $this->assertEquals(422, $response->getStatusCode());
-    }
-
-    public function testRegisterWithoutEmail()
-    {
-        $user = factory(User::class)->make();
-        $arrayUser = [
-            'pseudo' => $user->pseudo,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'password' => $user->password
-        ];
-
-        $response = $this->call('POST', '/api/users', $arrayUser);
-        $json = json_decode($response->getContent());
-
-        $this->assertEquals(422, $response->getStatusCode());
-    }
-
-    public function testRegisterWithoutName()
-    {
-        $user = factory(User::class)->make();
-        $arrayUser = [
-            'pseudo' => $user->pseudo,
-            'email' => $user->email,
-            'first_name' => $user->first_name,
-            'password' => $user->password
-        ];
-
-        $response = $this->call('POST', '/api/users', $arrayUser);
-        $json = json_decode($response->getContent());
-
-        $this->assertEquals(422, $response->getStatusCode());
-    }
-    **/
 }
