@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth:api'], function () {
     // Users
     Route::get('users', 'UsersAPIController@index');
-    Route::get('users/{id}', 'UsersAPIController@show')->where('id', '[0-9]+');
+    Route::get('users/{user}', 'UsersAPIController@show')->where('user', '[0-9]+');
     Route::match(['put', 'patch'], 'users', 'UsersAPIController@update');
 
     // Foyer

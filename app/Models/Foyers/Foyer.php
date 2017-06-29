@@ -182,6 +182,38 @@ class Foyer extends Model
     }
 
     /**
+     * User is friend
+     * @param User $user1 || Int $user1
+     * @param User $user2 || Int $user2
+     * @return bool
+     */
+    public static function isFriend($user1, $user2){
+        $id_user1 = $user1;
+        $id_user2 = $user2;
+
+        if($user1 instanceof User){$id_user1 = $user1->id;}
+        if($user2 instanceof User){$id_user2 = $user2->id;}
+
+        $FoyersUser1 = DB::table('foyers_users')
+            ->where('user_id', $id_user1)
+            ->get();
+
+        $FoyersUser2 = DB::table('foyers_users')
+            ->where('user_id', $id_user2)
+            ->get();
+
+        foreach ($FoyersUser1 as $Foyer1) {
+            foreach ($FoyersUser2 as $Foyer2) {
+                if($Foyer1->foyer_id == $Foyer2->foyer_id){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Add user in foyer
      * @param $user User or id_user
      * @param $foyer Foyer or id_foyer

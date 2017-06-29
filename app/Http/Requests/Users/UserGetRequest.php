@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Users;
 
+use App\Models\Foyers\Foyer;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserGetRequest extends FormRequest
@@ -13,8 +14,7 @@ class UserGetRequest extends FormRequest
      */
     public function authorize()
     {
-        // Todo: Vefifier que l'utilisateur peux visualiser ce profil (Foyers)
-        return true;
+        return Foyer::isFriend($this->user(), $this->user);
     }
 
     /**

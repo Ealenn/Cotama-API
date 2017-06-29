@@ -40,12 +40,12 @@ class UsersAPIController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Http\Requests\Users\UserGetRequest  $request
-     * @param  int  $id
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function show(UserGetRequest $request, $id)
+    public function show(UserGetRequest $request, User $user)
     {
-        return response()->json(User::findOrFail($id));
+        return response()->json($user);
     }
 
     /**
