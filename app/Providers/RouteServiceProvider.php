@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Foyers\Foyer;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
@@ -26,11 +27,14 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+        Route::model('foyer', Foyer::class);
     }
 
     /**
      * Define the routes for the application.
      *
+     * @param Router $router
+     * @param Request $request
      * @return void
      */
     public function map(Router $router, Request $request)
