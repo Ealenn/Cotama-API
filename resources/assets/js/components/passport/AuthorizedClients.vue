@@ -55,6 +55,7 @@
 </template>
 
 <script>
+    /* eslint-disable */
     export default {
         /*
          * The component's data.
