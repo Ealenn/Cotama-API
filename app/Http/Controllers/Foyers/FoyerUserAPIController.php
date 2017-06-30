@@ -5,13 +5,20 @@ namespace App\Http\Controllers\Foyers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Foyers\FoyerJoinRequest;
 use App\Models\Foyers\Foyer;
-use Illuminate\Http\Request;
 
+/**
+ * Class FoyerUserAPIController
+ * @resource UserInFoyers
+ * @package App\Http\Controllers\Foyers
+ */
 class FoyerUserAPIController extends Controller
 {
 
     /**
-     * Store a newly created resource in storage.
+     * Rejoindre un foyer | Joining a Home
+     *
+     * ### Erreurs possible
+     * - 404 : Clef invalide | Invalid key
      *
      * @param \App\Http\Requests\Foyers\FoyerJoinRequest $request
      * @return \Illuminate\Http\Response

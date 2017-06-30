@@ -1,0 +1,1059 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["bash","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="bash">bash</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Powered by Documentarian</a></li>
+                                  <li><a href='https://www.linkedin.com/in/rudymarchandise/'>Rudy Marchandise</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Informations</h1>
+<h2>HTTP errors</h2>
+<blockquote>
+<p>401 : Unauthorized</p>
+<ul>
+<li>L'accès requiert une connection valide</li>
+<li>Access requires a valid connection</li>
+</ul>
+</blockquote>
+<pre><code class="language-json">{
+  "error" : "Unauthenticated."
+}</code></pre>
+<blockquote>
+<p>403 : Forbidden</p>
+<ul>
+<li>L'utilisateur connecté n'as pas accès a cette ressource</li>
+<li>The connected user does not have access to this resource</li>
+</ul>
+</blockquote>
+<pre><code class="language-json">{
+  "error" : "Forbidden."
+}</code></pre>
+<blockquote>
+<p>422 Unprocessable Entity</p>
+<ul>
+<li>Les paramètres envoyés ne sont pas valide</li>
+<li>Parameters sent is not valid</li>
+</ul>
+</blockquote>
+<pre><code class="language-json">{
+  "email" : [
+     "The email must be a valid email address."
+  ],
+  "champ" : [
+    "error"
+  ]
+}</code></pre>
+<h2>Authentification</h2>
+<h3>URL</h3>
+<ul>
+<li>/oauth/token</li>
+</ul>
+<h3>Type</h3>
+<ul>
+<li>Content-Type : application/x-www-form-urlencoded</li>
+</ul>
+<h3>Form data</h3>
+<ul>
+<li>grant_type : password</li>
+<li>username : XXX</li>
+<li>password : XXX</li>
+<li>client_id : 1</li>
+<li>client_secret : IT63wuce0swwvlsw6B9z8MBGoh8qwU6D9yr6zAUA</li>
+<li>scope : *</li>
+</ul>
+<h3>Return</h3>
+<h4>200 = OK</h4>
+<p>{
+&quot;token_type&quot;: &quot;Bearer&quot;,
+&quot;expires_in&quot;: 31536000,
+&quot;access_token&quot;: &quot;...&quot;,
+&quot;refresh_token&quot;: &quot;...&quot;
+}</p>
+<h4>401 Unauthorized</h4>
+<p>{
+&quot;error&quot;: &quot;invalid_credentials&quot;,
+&quot;message&quot;: &quot;The user credentials were incorrect.&quot;
+}</p>
+<h3>Use Header HTTP</h3>
+<p>Authorization = token_type + ' ' + access_token</p>
+<!-- END_INFO -->
+<h1>Foyers</h1>
+<!-- START_de5a48c7818171ce92e1d824e4cd4875 -->
+<h2>Tout les foyers | All homes</h2>
+<ul>
+<li>Retourne tout les foyer de l'utilisateur connecté</li>
+<li>Returns all home of the logged-in user</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/api/foyer" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/foyer",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">[
+    {
+        "foyer": {
+            "content": {
+                "id": 1,
+                "name": "Rogahn, Lynch and Mosciski",
+                "key": "5956178ddeb1f",
+                "created_at": "2017-06-30 09:19:09",
+                "updated_at": "2017-06-30 09:19:09"
+            },
+            "admin": [
+                {
+                    "id": 1,
+                    "email": "test@test.fr",
+                    "pseudo": "Test",
+                    "first_name": "Mrs. Kelly Klocko",
+                    "last_name": "Assunta Auer DVM",
+                    "created_at": "2017-06-30 09:19:09",
+                    "updated_at": "2017-06-30 09:19:09"
+                }
+            ]
+        },
+        "users": [
+            {
+                "id": 1,
+                "email": "test@test.fr",
+                "pseudo": "Test",
+                "first_name": "Mrs. Kelly Klocko",
+                "last_name": "Assunta Auer DVM",
+                "created_at": "2017-06-30 09:19:09",
+                "updated_at": "2017-06-30 09:19:09"
+            }
+        ]
+    }
+]</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/foyer</code></p>
+<p><code>HEAD api/foyer</code></p>
+<!-- END_de5a48c7818171ce92e1d824e4cd4875 -->
+<!-- START_7a7df1b50aa1375ef017dcbe0a8efed2 -->
+<h2>Foyer specifique | Specified home</h2>
+<ul>
+<li>Retourne un foyer spécifique</li>
+<li>Returns a specific home</li>
+</ul>
+<h3>/!\ <strong>Attention : Warning</strong></h3>
+<ul>
+<li>L'utilisateur connecté doit faire partie du foyer</li>
+<li>The connected user must be part of the household</li>
+</ul>
+<h3>Paramètre : Parameter</h3>
+<ul>
+<li>{foyer} : id</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/api/foyer/{foyer}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/foyer/{foyer}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "foyer": {
+        "content": {
+            "id": 1,
+            "name": "Rogahn, Lynch and Mosciski",
+            "key": "5956178ddeb1f",
+            "created_at": "2017-06-30 09:19:09",
+            "updated_at": "2017-06-30 09:19:09"
+        },
+        "admin": [
+            {
+                "id": 1,
+                "email": "test@test.fr",
+                "pseudo": "Test",
+                "first_name": "Mrs. Kelly Klocko",
+                "last_name": "Assunta Auer DVM",
+                "created_at": "2017-06-30 09:19:09",
+                "updated_at": "2017-06-30 09:19:09"
+            }
+        ]
+    },
+    "users": [
+        {
+            "id": 1,
+            "email": "test@test.fr",
+            "pseudo": "Test",
+            "first_name": "Mrs. Kelly Klocko",
+            "last_name": "Assunta Auer DVM",
+            "created_at": "2017-06-30 09:19:09",
+            "updated_at": "2017-06-30 09:19:09"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/foyer/{foyer}</code></p>
+<p><code>HEAD api/foyer/{foyer}</code></p>
+<!-- END_7a7df1b50aa1375ef017dcbe0a8efed2 -->
+<!-- START_c01e1f55495cb6c94decbee03206897e -->
+<h2>Créer un foyer | Create house</h2>
+<ul>
+<li>Retourne le foyer créé</li>
+<li>Returns the created house</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/foyer" \
+-H "Accept: application/json" \
+    -d "name"="ab" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/foyer",
+    "method": "POST",
+    "data": {
+        "name": "ab"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/foyer</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>4</code> Maximum: <code>255</code></td>
+</tr>
+</tbody>
+</table>
+<!-- END_c01e1f55495cb6c94decbee03206897e -->
+<!-- START_4d7099742e20f2613e6210e4998fee3a -->
+<h2>Modifier un foyer | Update house</h2>
+<h3>/!\ <strong>Attention : Warning</strong></h3>
+<ul>
+<li>L'utilisateur doit être admin du foyer</li>
+<li>The user must be admin of home</li>
+</ul>
+<h3>Paramètre URL : URL Parameter</h3>
+<ul>
+<li>{foyer} : id</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/foyer/{foyer}" \
+-H "Accept: application/json" \
+    -d "name"="odit" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/foyer/{foyer}",
+    "method": "PUT",
+    "data": {
+        "name": "odit"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/foyer/{foyer}</code></p>
+<p><code>PATCH api/foyer/{foyer}</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>optional</td>
+<td>Minimum: <code>4</code> Maximum: <code>255</code></td>
+</tr>
+</tbody>
+</table>
+<!-- END_4d7099742e20f2613e6210e4998fee3a -->
+<h1>UserInFoyers</h1>
+<!-- START_9137b61e923289cb047f5867a8dbb57c -->
+<h2>Rejoindre un foyer | Joining a Home</h2>
+<h3>Erreurs possible</h3>
+<ul>
+<li>404 : Clef invalide | Invalid key</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/foyer/join" \
+-H "Accept: application/json" \
+    -d "key"="recusandae" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/foyer/join",
+    "method": "POST",
+    "data": {
+        "key": "recusandae"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/foyer/join</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_9137b61e923289cb047f5867a8dbb57c -->
+<h1>Users</h1>
+<!-- START_da5727be600e4865c1b632f7745c8e91 -->
+<h2>Retourner l&#039;utilisateur connecté | Return Online User</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/api/users" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "email": "test@test.fr",
+    "pseudo": "Test",
+    "first_name": "Mrs. Kelly Klocko",
+    "last_name": "Assunta Auer DVM",
+    "created_at": "2017-06-30 09:19:09",
+    "updated_at": "2017-06-30 09:19:09"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/users</code></p>
+<p><code>HEAD api/users</code></p>
+<!-- END_da5727be600e4865c1b632f7745c8e91 -->
+<!-- START_8f99b42746e451f8dc43742e118cb47b -->
+<h2>Retourner un profil spécifique | Returns a specific profile</h2>
+<h3>/!\ <strong>Attention : Warning</strong></h3>
+<ul>
+<li>Les utilisateurs doivent partager au moins un foyer</li>
+<li>Users must share at least one household</li>
+</ul>
+<h3>Paramètre URL : URL Parameter</h3>
+<ul>
+<li>{user} : id</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "email": "test@test.fr",
+    "pseudo": "Test",
+    "first_name": "Mrs. Kelly Klocko",
+    "last_name": "Assunta Auer DVM",
+    "created_at": "2017-06-30 09:19:09",
+    "updated_at": "2017-06-30 09:19:09"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/users/{user}</code></p>
+<p><code>HEAD api/users/{user}</code></p>
+<!-- END_8f99b42746e451f8dc43742e118cb47b -->
+<!-- START_0a07cb408968adde6dfafb716b43cf0d -->
+<h2>Modifier l&#039;utilisateur connecté | Edit user logged in</h2>
+<ul>
+<li>Retourne l'utilisateur modifier</li>
+<li>Returns the user edited</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/api/users" \
+-H "Accept: application/json" \
+    -d "pseudo"="quia" \
+    -d "first_name"="quia" \
+    -d "last_name"="quia" \
+    -d "email"="friesen.hettie@example.com" \
+    -d "password"="quia" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "PUT",
+    "data": {
+        "pseudo": "quia",
+        "first_name": "quia",
+        "last_name": "quia",
+        "email": "friesen.hettie@example.com",
+        "password": "quia"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT api/users</code></p>
+<p><code>PATCH api/users</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pseudo</td>
+<td>string</td>
+<td>optional</td>
+<td>Minimum: <code>4</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>optional</td>
+<td>Minimum: <code>2</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>optional</td>
+<td>Minimum: <code>2</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>optional</td>
+<td>Minimum: <code>5</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>optional</td>
+<td>Minimum: <code>6</code> Maximum: <code>255</code></td>
+</tr>
+</tbody>
+</table>
+<!-- END_0a07cb408968adde6dfafb716b43cf0d -->
+<!-- START_12e37982cc5398c7100e59625ebb5514 -->
+<h2>Création d&#039;un utilisateur | Creating a user</h2>
+<ul>
+<li>Retourne l'utilisateur créé</li>
+<li>Return created user</li>
+</ul>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/users" \
+-H "Accept: application/json" \
+    -d "pseudo"="rem" \
+    -d "first_name"="rem" \
+    -d "last_name"="rem" \
+    -d "email"="claire.schumm@example.net" \
+    -d "password"="rem" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "POST",
+    "data": {
+        "pseudo": "rem",
+        "first_name": "rem",
+        "last_name": "rem",
+        "email": "claire.schumm@example.net",
+        "password": "rem"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/users</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pseudo</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>4</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>2</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>2</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>email</td>
+<td>email</td>
+<td>required</td>
+<td>Minimum: <code>5</code> Maximum: <code>255</code></td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>6</code> Maximum: <code>255</code></td>
+</tr>
+</tbody>
+</table>
+<!-- END_12e37982cc5398c7100e59625ebb5514 -->
+<h1>general</h1>
+<!-- START_57011a4e29c6bc1cfec9270de49657bf -->
+<h2>Authorize a client to access the user&#039;s account.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/oauth/authorize" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/authorize",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "unsupported_grant_type",
+    "message": "The authorization grant type is not supported by the authorization server.",
+    "hint": "Check the `grant_type` parameter"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/authorize</code></p>
+<p><code>HEAD oauth/authorize</code></p>
+<!-- END_57011a4e29c6bc1cfec9270de49657bf -->
+<!-- START_e48cc6a0b45dd21b7076ab2c03908687 -->
+<h2>Approve the authorization request.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/oauth/authorize" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/authorize",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/authorize</code></p>
+<!-- END_e48cc6a0b45dd21b7076ab2c03908687 -->
+<!-- START_de5d7581ef1275fce2a229b6b6eaad9c -->
+<h2>Deny the authorization request.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/oauth/authorize" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/authorize",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/authorize</code></p>
+<!-- END_de5d7581ef1275fce2a229b6b6eaad9c -->
+<!-- START_a09d20357336aa979ecd8e3972ac9168 -->
+<h2>Authorize a client to access the user&#039;s account.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/oauth/token" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/token",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/token</code></p>
+<!-- END_a09d20357336aa979ecd8e3972ac9168 -->
+<!-- START_e96d5ebaecbbcd30089fa499c8d21792 -->
+<h2>Get all of the authorized tokens for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/oauth/tokens" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/tokens",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/tokens</code></p>
+<p><code>HEAD oauth/tokens</code></p>
+<!-- END_e96d5ebaecbbcd30089fa499c8d21792 -->
+<!-- START_a9a802c25737cca5324125e5f60b72a5 -->
+<h2>Delete the given token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/oauth/tokens/{token_id}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/tokens/{token_id}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/tokens/{token_id}</code></p>
+<!-- END_a9a802c25737cca5324125e5f60b72a5 -->
+<!-- START_abe905e69f5d002aa7d26f433676d623 -->
+<h2>Get a fresh transient token cookie for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/oauth/token/refresh" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/token/refresh",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/token/refresh</code></p>
+<!-- END_abe905e69f5d002aa7d26f433676d623 -->
+<!-- START_258e7e83c3ea28db7720e63d358b33ff -->
+<h2>Get all of the clients for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/oauth/clients" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/clients",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/clients</code></p>
+<p><code>HEAD oauth/clients</code></p>
+<!-- END_258e7e83c3ea28db7720e63d358b33ff -->
+<!-- START_9eabf8d6e4ab449c24c503fcb42fba82 -->
+<h2>Store a new client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/oauth/clients" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/clients",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/clients</code></p>
+<!-- END_9eabf8d6e4ab449c24c503fcb42fba82 -->
+<!-- START_784aec390a455073fc7464335c1defa1 -->
+<h2>Update the given client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PUT "http://localhost/oauth/clients/{client_id}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/clients/{client_id}",
+    "method": "PUT",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT oauth/clients/{client_id}</code></p>
+<!-- END_784aec390a455073fc7464335c1defa1 -->
+<!-- START_1f65a511dd86ba0541d7ba13ca57e364 -->
+<h2>Delete the given client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/oauth/clients/{client_id}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/clients/{client_id}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/clients/{client_id}</code></p>
+<!-- END_1f65a511dd86ba0541d7ba13ca57e364 -->
+<!-- START_6eec11382f34d0f08c826d2813b02d04 -->
+<h2>Get all of the available scopes for the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/oauth/scopes" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/scopes",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/scopes</code></p>
+<p><code>HEAD oauth/scopes</code></p>
+<!-- END_6eec11382f34d0f08c826d2813b02d04 -->
+<!-- START_b4c3e68afae3c4de78758b62c49ac9a9 -->
+<h2>Get all of the personal access tokens for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/oauth/personal-access-tokens" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/personal-access-tokens",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "error": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/personal-access-tokens</code></p>
+<p><code>HEAD oauth/personal-access-tokens</code></p>
+<!-- END_b4c3e68afae3c4de78758b62c49ac9a9 -->
+<!-- START_a8dd9c0a5583742e671711f9bb3ee406 -->
+<h2>Create a new personal access token for the user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/oauth/personal-access-tokens" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/personal-access-tokens",
+    "method": "POST",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/personal-access-tokens</code></p>
+<!-- END_a8dd9c0a5583742e671711f9bb3ee406 -->
+<!-- START_bae65df80fd9d72a01439241a9ea20d0 -->
+<h2>Delete the given token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/oauth/personal-access-tokens/{token_id}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/oauth/personal-access-tokens/{token_id}",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/personal-access-tokens/{token_id}</code></p>
+<!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+/**
+ * Class RegisterController
+ * @Ressource Auth
+ * @package App\Http\Controllers\Auth
+ */
 class RegisterController extends Controller
 {
     /*

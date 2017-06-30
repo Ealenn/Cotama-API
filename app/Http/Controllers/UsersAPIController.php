@@ -10,12 +10,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
 
+/**
+ * @resource Users
+ */
 class UsersAPIController extends Controller
 {
     /**
-     * Send tokken user
-     * @param  \Illuminate\Http\Request  $request
+     * Retourner l'utilisateur connecté | Return Online User
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -24,7 +27,10 @@ class UsersAPIController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Création d'un utilisateur | Creating a user
+     *
+     * - Retourne l'utilisateur créé
+     * - Return created user
      *
      * @param  \App\Http\Requests\Users\UserSaveRequest  $request
      * @return \Illuminate\Http\Response
@@ -37,7 +43,14 @@ class UsersAPIController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Retourner un profil spécifique | Returns a specific profile
+     *
+     * ### /!\ **Attention : Warning**
+     * - Les utilisateurs doivent partager au moins un foyer
+     * - Users must share at least one household
+     *
+     * ### Paramètre URL : URL Parameter
+     * - {user} : id
      *
      * @param  \App\Http\Requests\Users\UserGetRequest  $request
      * @param  User $user
@@ -49,7 +62,10 @@ class UsersAPIController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Modifier l'utilisateur connecté | Edit user logged in
+     *
+     * - Retourne l'utilisateur modifier
+     * - Returns the user edited
      *
      * @param  \App\Http\Requests\Users\UserPutRequest $request
      * @return \Illuminate\Http\Response

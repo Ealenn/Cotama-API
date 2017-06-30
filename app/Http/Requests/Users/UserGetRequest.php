@@ -14,7 +14,7 @@ class UserGetRequest extends FormRequest
      */
     public function authorize()
     {
-        return Foyer::isFriend($this->user(), $this->user);
+        return Foyer::isFriend($this->user(), $this->user) || $this->user->id == $this->user()->id;
     }
 
     /**
@@ -25,7 +25,7 @@ class UserGetRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+
         ];
     }
 

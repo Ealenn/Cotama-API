@@ -42,7 +42,7 @@ class CreateFoyersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('foyers');
         Schema::dropIfExists('foyers_users');
+        Schema::dropIfExists('foyers');
     }
 }
