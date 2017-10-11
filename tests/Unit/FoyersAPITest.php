@@ -120,7 +120,7 @@ class FoyersAPITest extends PassportTestCase
 
     public function testGetFoyerWithConnection()
     {
-        $response = $this->get('/api/foyer');
+        $response = $this->get('/api/foyer', $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -129,10 +129,10 @@ class FoyersAPITest extends PassportTestCase
     public function testGetFoyerId()
     {
         $foyer = factory(Foyer::class)->make();
-        $response = $this->post('/api/foyer', ['name' => $foyer->name]);
+        $response = $this->post('/api/foyer', ['name' => $foyer->name], $this->headers);
         $jsonCreat = json_decode($response->getContent());
 
-        $response = $this->get('/api/foyer/' . $jsonCreat->id);
+        $response = $this->get('/api/foyer/' . $jsonCreat->id, $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -180,7 +180,7 @@ class FoyersAPITest extends PassportTestCase
 
         $response = $this->put('/api/foyer/' . $jsonPost->id, [
             'name' => $foyer2->name
-        ]);
+        ], $this->headers);
         $jsonPut = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -198,7 +198,7 @@ class FoyersAPITest extends PassportTestCase
         $foyer = factory(Foyer::class)->create();
         $response = $this->post('/api/foyer/join/', [
             'key' => $foyer->key
-        ]);
+        ], $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -210,7 +210,7 @@ class FoyersAPITest extends PassportTestCase
         $foyer = factory(Foyer::class)->create();
         $response = $this->post('/api/foyer/join/', [
             'key' => $foyer->key . 'T'
-        ]);
+        ], $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(403, $response->getStatusCode());

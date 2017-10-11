@@ -26,7 +26,7 @@ class UsersAPITest extends PassportTestCase
 
     public function testGetUserWithConnection()
     {
-        $response = $this->get('/api/users');
+        $response = $this->get('/api/users', $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -96,7 +96,7 @@ class UsersAPITest extends PassportTestCase
             'password' => $user->password
         ];
 
-        $response = $this->call('POST', '/api/users', $arrayUser);
+        $response = $this->post('/api/users', $arrayUser, $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -113,7 +113,7 @@ class UsersAPITest extends PassportTestCase
             'password' => $user->password
         ];
 
-        $response = $this->call('POST', '/api/users', $arrayUser);
+        $response = $this->post('/api/users', $arrayUser, $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(422, $response->getStatusCode());
@@ -129,7 +129,7 @@ class UsersAPITest extends PassportTestCase
             'password' => $user->password
         ];
 
-        $response = $this->call('POST', '/api/users', $arrayUser);
+        $response = $this->post('/api/users', $arrayUser, $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(422, $response->getStatusCode());
@@ -145,7 +145,7 @@ class UsersAPITest extends PassportTestCase
             'password' => $user->password
         ];
 
-        $response = $this->call('POST', '/api/users', $arrayUser);
+        $response = $this->post('/api/users', $arrayUser, $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(422, $response->getStatusCode());

@@ -11,10 +11,12 @@ class FoyersTableSeeder extends Seeder
      */
     public function run()
     {
-        $Array = factory(\App\Models\Foyers\Foyer::class)->make();
+        $Foyer = factory(\App\Models\Foyers\Foyer::class)->make();
         \App\Models\Foyers\Foyer::create(
             \App\User::find(1),
-            $Array['attributes']
+            [
+              'name' => $Foyer->name
+            ]
         );
     }
 }

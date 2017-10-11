@@ -4,10 +4,9 @@ php:
 os:
 - linux
 install:
-- travis_retry composer install --no-interaction
+- travis_retry make install
 - wget https://phar.phpunit.de/phpunit.phar
 - chmod +x phpunit.phar
-- php artisan passport:keys
 - php artisan migrate --database="testing"
 - php phpunit.phar --version
 script:
