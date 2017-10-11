@@ -1,0 +1,17 @@
+language: php
+php:
+- 7.1.9
+os:
+- linux
+install:
+- travis_retry composer install --no-interaction
+- wget https://phar.phpunit.de/phpunit.phar
+- chmod +x phpunit.phar
+- php artisan passport:keys
+- php artisan migrate --database="testing"
+- php phpunit.phar --version
+script:
+- travis_wait php phpunit.phar
+cache:
+  directories:
+  - vendor

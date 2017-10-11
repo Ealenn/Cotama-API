@@ -21,6 +21,7 @@ class Foyer extends Model
     {
         $this->defaults['key'] = uniqid();
         $this->setRawAttributes($this->defaults, true);
+
         parent::__construct($attributes);
     }
 
@@ -36,9 +37,13 @@ class Foyer extends Model
      * @param $arrayFoyer
      * @return Foyer
      */
-    public static function create($user, $arrayFoyer){
-        $foyer = new Foyer($arrayFoyer);
-        $foyer->save();
+    public static function create($user, $arrayFoyer)
+    {
+        $foyer = $arrayFoyer;
+        if (!$arrayFoyer instanceof Foyer) {
+            $foyer = new Foyer($arrayFoyer);
+            $foyer->save();
+        }
 
         if($user instanceof User){
             Foyer::addUserFoyer($user->id, $foyer->id, true);

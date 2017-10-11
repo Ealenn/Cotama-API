@@ -12,6 +12,7 @@ use Mockery\Exception;
 
 /**
  * @resource Users
+ * @package App\Http\Controllers
  */
 class UsersAPIController extends Controller
 {

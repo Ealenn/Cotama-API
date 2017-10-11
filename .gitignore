@@ -10,5 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
-
-public/img/Thumbs.db
+/phpDoc
+/public/docs
+/public/img/Thumbs.db

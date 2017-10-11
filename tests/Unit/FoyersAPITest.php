@@ -81,23 +81,25 @@ class FoyersAPITest extends PassportTestCase
     public function testModelFoyerCreateMethode()
     {
         $User = factory(User::class)->create();
-        $id_user = $User['attributes']['id'];
 
-        $foyer = Foyer::create($id_user, factory(Foyer::class)->make()['attributes']);
+        $f = factory(Foyer::class)->make();
+        $foyer = Foyer::create(
+            $User,
+            ['name' => $f->name]
+        );
 
-        $this->assertEquals(true, Foyer::isAdminFoyer($id_user, $foyer->id));
-        $this->assertEquals(true, Foyer::isAdminFoyer($id_user, $foyer));
+        $this->assertEquals(true, Foyer::isAdminFoyer($User, $foyer->id));
+        $this->assertEquals(true, Foyer::isAdminFoyer($User, $foyer));
     }
 
     public function testModelFoyerAllForUserIdMethode()
     {
         $User = factory(User::class)->create();
-        $id_user = $User['attributes']['id'];
 
-        Foyer::create($id_user, factory(Foyer::class)->make()['attributes']);
-        Foyer::create($id_user, factory(Foyer::class)->make()['attributes']);
+        Foyer::create($User, factory(Foyer::class)->create());
+        Foyer::create($User, factory(Foyer::class)->create());
 
-        $AllFoyer = Foyer::getAllForUser($id_user);
+        $AllFoyer = Foyer::getAllForUser($User);
 
         $this->assertEquals(2, sizeof($AllFoyer));
         $this->assertEquals(1, sizeof($AllFoyer[0]['users']));
@@ -127,7 +129,7 @@ class FoyersAPITest extends PassportTestCase
     public function testGetFoyerId()
     {
         $foyer = factory(Foyer::class)->make();
-        $response = $this->post('/api/foyer', $foyer['attributes']);
+        $response = $this->post('/api/foyer', ['name' => $foyer->name]);
         $jsonCreat = json_decode($response->getContent());
 
         $response = $this->get('/api/foyer/' . $jsonCreat->id);
@@ -149,7 +151,7 @@ class FoyersAPITest extends PassportTestCase
     {
         $foyer = factory(Foyer::class)->make();
 
-        $response = $this->post('/api/foyer', $foyer['attributes']);
+        $response = $this->post('/api/foyer', ['name' => $foyer->name]);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -167,7 +169,7 @@ class FoyersAPITest extends PassportTestCase
     {
         $foyer = factory(Foyer::class)->make();
 
-        $response = $this->post('/api/foyer', $foyer['attributes']);
+        $response = $this->post('/api/foyer', ['name' => $foyer->name]);
         $jsonPost = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
