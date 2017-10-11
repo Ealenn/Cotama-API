@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.5.*",
-        "laravel/passport": "^3.0",
+        "laravel/passport": "^4.0",
         "laravel/tinker": "~1.0"
     },
     "require-dev": {
@@ -30,9 +30,6 @@
         }
     },
     "scripts": {
-        "generate:docs": [
-            "rm -rf public/docs && php artisan migrate:refresh && php artisan db:seed && php artisan api:generate --actAsUserId=1 --routePrefix=* --noPostmanCollection --force"
-        ],
         "post-root-package-install": [
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
