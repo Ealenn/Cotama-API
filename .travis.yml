@@ -11,10 +11,6 @@ install:
 - php phpunit.phar --version
 script:
 - travis_wait php phpunit.phar
-cache:
-  directories:
-  - vendor
-before_deploy: "echo '--- Ready ? ---'"
 deploy:
   provider: heroku
   api_key:
