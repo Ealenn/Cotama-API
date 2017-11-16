@@ -192,7 +192,7 @@ return [
         /*
          * Libs
          */
-        Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class
+        // Mpociot\ApiDoc\ApiDocGeneratorServiceProvider::class
     ],
 
     /*
