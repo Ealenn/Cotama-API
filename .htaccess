@@ -1,2 +1,5 @@
 RewriteEngine On
 RewriteRule ^(.*)$ public/$1 [L]
+
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-javascript
