@@ -4,6 +4,7 @@ php:
 os:
 - linux
 install:
+- composer install
 - wget https://phar.phpunit.de/phpunit.phar
 - chmod +x phpunit.phar
 - php artisan migrate --database="testing"
