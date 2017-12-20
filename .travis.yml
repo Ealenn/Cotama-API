@@ -10,7 +10,7 @@ install:
 - php artisan migrate --database="testing"
 - php phpunit.phar --version
 script:
-- travis_wait php phpunit.phar --database="testing"
+- travis_wait php phpunit.phar
 deploy:
   provider: heroku
   api_key:
