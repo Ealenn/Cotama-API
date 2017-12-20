@@ -16,12 +16,12 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => 'auth:api'], function () {
     // Users
     Route::get('users', 'UsersAPIController@index');
-    Route::get('users/{user}', 'UsersAPIController@show')->where('user', '[0-9]+');
+    Route::get('users/{user}', 'UsersAPIController@show');
     Route::match(['put', 'patch'], 'users', 'UsersAPIController@update');
 
     // Foyer
     Route::get('foyer', 'Foyers\FoyerAPIController@index');
-    Route::get('foyer/{foyer}', 'Foyers\FoyerAPIController@show')->where('foyer', '[0-9]+');
+    Route::get('foyer/{foyer}', 'Foyers\FoyerAPIController@show');
     Route::post('foyer', 'Foyers\FoyerAPIController@store');
     Route::match(['put', 'patch'], 'foyer/{foyer}', 'Foyers\FoyerAPIController@update');
 
