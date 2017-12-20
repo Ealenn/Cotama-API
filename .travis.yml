@@ -4,16 +4,12 @@ php:
 os:
 - linux
 install:
-- travis_retry make install
 - wget https://phar.phpunit.de/phpunit.phar
 - chmod +x phpunit.phar
 - php artisan migrate --database="testing"
 - php phpunit.phar --version
 script:
 - travis_wait php phpunit.phar
-cache:
-  directories:
-  - vendor
 deploy:
   provider: heroku
   api_key:
