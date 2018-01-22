@@ -6,7 +6,10 @@
 composer install
 cp .env.exemple .env
 php artisan key:generate
-#-- Dev env
+```
+
+> Dev env
+```sh
 php artisan migrate
 php artisan db:seed
 php artisan passport:client
@@ -19,5 +22,5 @@ php artisan passport:client
 
 # Generate documentation 
 ```
-
+php artisan api:generate --routePrefix="*"
 ```

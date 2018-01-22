@@ -134,7 +134,6 @@ class FoyersAPITest extends PassportTestCase
 
         $response = $this->get('/api/foyer/' . $jsonCreat->id, $this->headers);
         $json = json_decode($response->getContent());
-        var_dump($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals($foyer->name, $json->foyer->content->name);
