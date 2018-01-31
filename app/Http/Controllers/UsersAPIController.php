@@ -39,6 +39,8 @@ class UsersAPIController extends Controller
     public function store(UserSaveRequest $request)
     {
         $user = new User(\Illuminate\Support\Facades\Request::all());
+        $user->setAttribute("password", bcrypt($user->getAuthPassword()));
+
         $user->save();
         return response()->json($user);
     }
