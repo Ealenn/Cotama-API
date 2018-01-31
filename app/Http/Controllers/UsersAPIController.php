@@ -7,6 +7,7 @@ use App\Http\Requests\Users\UserPutRequest;
 use App\Http\Requests\Users\UserSaveRequest;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
 
@@ -39,8 +40,6 @@ class UsersAPIController extends Controller
     public function store(UserSaveRequest $request)
     {
         $user = new User(\Illuminate\Support\Facades\Request::all());
-        $user->setAttribute("password", bcrypt($user->getAuthPassword()));
-
         $user->save();
         return response()->json($user);
     }
