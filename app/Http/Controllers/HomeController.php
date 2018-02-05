@@ -2,19 +2,28 @@
 
 namespace App\Http\Controllers;
 
-/**
- * Class HomeController
- * @package App\Http\Controllers
- */
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+    }
 
     /**
-     * @hideFromAPIDocumentation
+     * Show the application dashboard.
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
         return view('home');
+    }
+
+    public function front() {
+      return view('front/welcome');
     }
 }

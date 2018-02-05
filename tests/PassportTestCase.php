@@ -34,6 +34,7 @@ class PassportTestCase extends TestCase
         $token = $this->user->createToken('TestToken', $this->scopes)->accessToken;
         $this->headers['Accept'] = 'application/json';
         $this->headers['Authorization'] = 'Bearer '.$token;
+        $this->headers['X-Requested-With'] = 'XMLHttpRequest';
     }
     public function get($uri, array $headers = [])
     {

@@ -12,7 +12,7 @@ php artisan key:generate
 ```sh
 php artisan migrate
 php artisan db:seed
-php artisan passport:client
+php artisan passport:client --password
 ```
 
 # User Test

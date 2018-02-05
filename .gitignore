@@ -62,6 +62,8 @@ fabric.properties
 vendor/
 node_modules/
 npm-debug.log
+public/js/
+public/css/
 
 # Laravel 4 specific
 bootstrap/compiled.php
@@ -81,3 +83,6 @@ Homestead.json
 
 # Docs
 public/docs
+
+# MacOS
+.DS_Store
