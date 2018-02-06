@@ -78,7 +78,6 @@
 
         return 'opacity: 0.5;'
       },
-<<<<<<< HEAD
       lang: function () {
         return document.querySelector('html').getAttribute('lang')
       },
@@ -88,10 +87,6 @@
               l = 'gb'
           }
           return 'flag-icon flag-icon-' + l
-=======
-      trans: function () {
-        return this.$t
->>>>>>> 5d0bd7687e68398a8062c90e33c2047eac4f1ad1
       }
     },
     methods: {
