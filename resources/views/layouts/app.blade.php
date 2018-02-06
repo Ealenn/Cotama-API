@@ -10,15 +10,14 @@
   <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/css/flag-icon.min.css" integrity="sha256-D+ZpDJjhGxa5ffyQkuTvwii4AntFGBZa4jUhSpdlhjM=" crossorigin="anonymous" />
   <title>@lang('views/home.title')</title>
+  <style>body{opacity:1;transition:1.5s opacity;}body.fade-out{opacity:0;transition:none;}</style>
 </head>
 
-<body>
+<body class="fade-out">
+  <div id="app-front">
+    @yield('content')
+  </div>
 
-<div id="app-front">
-  @yield('content')
-</div>
-
-
-<script src="{{ mix('js/front.js') }}"></script>
+  <script src="{{ mix('js/front.js') }}"></script>
 </body>
 </html>

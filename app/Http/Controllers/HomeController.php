@@ -24,6 +24,6 @@ class HomeController extends Controller
     }
 
     public function front() {
-      return view('front/welcome');
+      return view('game/index');
     }
 }

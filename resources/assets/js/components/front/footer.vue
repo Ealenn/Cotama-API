@@ -6,15 +6,14 @@
           <a href="#top" class="top"><i class="fa fa-angle-up"></i></a>
         </div>
         <p class="white--text px-3 py-3">
-          Développer avec
+          {{ 'front.footer.dev-with' | translate }}
           <span class="fa fa-heart pulse2"></span>
-          par des amis en Master Cloud Computing
+          {{ 'front.footer.dev-by' | translate }}
         </p>
       </v-flex>
       <v-flex xs12 row style="background-color: #3D4351;z-index: 2;">
         <p class="white--text px-3 py-3">
-          D'une idée originale de Rudy, présenté au Hackathon 2017 de Saint-Quentin.
-          Avec l'aide d'Antoine, Léo, Alexandre et Orelien.
+          {{ 'front.footer.by' | translate }}
         </p>
       </v-flex>
     </v-layout>

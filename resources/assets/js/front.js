@@ -7,17 +7,20 @@ import VueAxios from 'vue-axios'
 import axios from 'axios'
 import Vuex from 'vuex'
 import vuexI18n from 'vuex-i18n'
-import translationFr from './translate/fr'
-import translationEn from './translate/en'
+// import translationFr from './translate/fr'
+// import translationEn from './translate/en'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store()
 Vue.use(vuexI18n.plugin, store)
-Vue.i18n.add('fr', translationFr)
-Vue.i18n.add('en', translationEn)
-Vue.i18n.set(document.querySelector('html').getAttribute('lang'))
 
+// Translate
+let lang = document.querySelector('html').getAttribute('lang')
+Vue.i18n.add(lang, require('./translate/' + lang).default)
+Vue.i18n.set(lang)
+
+// Axios
 axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest',
 };
@@ -47,5 +50,8 @@ import Front from './components/front'
 
 new Vue({
   el: '#app-front',
-  components: { Login, Register, Email, Reset, Front }
+  components: { Login, Register, Email, Reset, Front },
+  mounted() {
+    document.body.removeAttribute('class')
+  }
 })

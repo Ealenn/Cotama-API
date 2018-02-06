@@ -1,12 +1,13 @@
 <template>
-  <v-app id="inspire">
+  <video-bg :sources="['/img/cover/cover.mp4', '/img/cover/cover.webm']" img="/img/cover/cover.jpg">
+    <v-app id="inspire" style="background-color: transparent!important">
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4>
+          <v-flex xs12 sm8 md4 class="elevation-24">
 
             <v-card class="elevation-12">
-              <v-toolbar dark color="primary">
+              <v-toolbar flat dark color="primary">
                 <v-toolbar-title>{{ 'auth.reset.title' | translate}}</v-toolbar-title>
               </v-toolbar>
               <v-form :action="url_password_email" method="post">
@@ -22,13 +23,13 @@
 
                   <input type="hidden" name="_token" :value="csrf">
                   <input type="hidden" name="token" :value="token">
-                  <v-text-field prepend-icon="fa-at" v-model="email" name="email" :label="'auth.login.input.email' | translate" type="text"></v-text-field>
-                  <v-text-field prepend-icon="fa-key" name="password" :label="'auth.login.input.password' | translate" id="password" type="password"></v-text-field>
-                  <v-text-field prepend-icon="fa-key" name="password_confirmation" :label="'auth.login.input.password' | translate" id="password_confirmation" type="password"></v-text-field>
+                  <v-text-field prepend-icon="mail_outline" v-model="email" name="email" :label="'auth.reset.input.email' | translate" type="text"></v-text-field>
+                  <v-text-field prepend-icon="lock_outline" name="password" :label="'auth.reset.input.password' | translate" id="password" type="password"></v-text-field>
+                  <v-text-field prepend-icon="lock_outline" name="password_confirmation" :label="'auth.reset.input.password2' | translate" id="password_confirmation" type="password"></v-text-field>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn type="submit" color="primary">{{ 'auth.reset.input.send' | translate}}</v-btn>
+                  <v-btn type="submit" color="primary">{{ 'auth.reset.input.valide' | translate}}</v-btn>
                 </v-card-actions>
               </v-form>
             </v-card>
@@ -37,10 +38,14 @@
       </v-container>
     </v-content>
   </v-app>
+  </video-bg>
 </template>
 
 <script>
+  import VideoBg from 'vue-videobg'
+
   export default {
+    components: { VideoBg },
     data: () => ({
       drawer: null,
       csrf: null

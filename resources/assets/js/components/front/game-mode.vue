@@ -9,12 +9,12 @@
     >
       <v-flex xs12 class="my-3 white--text">
         <div class="text-xs-center">
-          <h2 class="headline">Mode de jeu</h2>
+          <h2 class="headline">{{ 'front.game-mode.title' | translate }}</h2>
           <span class="subheading">
-                Les modes de jeu sont les différentes manières parmi lesquelles l'utilisateur peut choisir de jouer
+            {{ 'front.game-mode.subtitle' | translate }}
           </span>
           <blockquote>
-            Je déteste faire le ménage. Vous faites le lit, la vaisselle et six mois après, tout est à refaire!
+            {{ 'front.game-mode.quote' | translate }}
           </blockquote>
         </div>
       </v-flex>
@@ -28,11 +28,12 @@
                 <v-card-title primary-title>
                   <h3 class="headline mb-0">
                     <v-icon x-large class="blue--text text--lighten-2">lnr lnr-mustache</v-icon>
-                    Colocataires
+                    {{ 'front.game-mode.roommates.title' | translate }}
                   </h3>
 
                   <div class="mt-4">
-                    La meilleure façon de jouer ! Ce mode de jeu très décontracté vous permet de lancer des défis aléatoires lorsque les tâches ménagères ne sont pas effectuées correctement. L'interface est complète et les mini-jeux déjanté mettent de l'ambiance lors de vos missions.                  </div>
+                    {{ 'front.game-mode.roommates.content' | translate }}
+                  </div>
                 </v-card-title>
               </v-card>
             </v-flex>
@@ -42,11 +43,11 @@
                 <v-card-title primary-title>
                   <h3 class="headline mb-0">
                     <v-icon x-large class="blue--text text--lighten-2">lnr lnr-dinner</v-icon>
-                    Famille
+                    {{ 'front.game-mode.family.title' | translate }}
                   </h3>
 
                   <div class="mt-4">
-                    Ce mode de jeu est destiné à une famille. Beaucoup plus sérieux mais toujours aussi drôle, ce mode permet de répartir les tâches équitablement sous forme de jeu avec des défis et mini-jeuxƒ réalisables de 6 à 200 ans. L'interface est quant à elle plus simple et intuitive.
+                    {{ 'front.game-mode.family.content' | translate }}
                   </div>
                 </v-card-title>
               </v-card>

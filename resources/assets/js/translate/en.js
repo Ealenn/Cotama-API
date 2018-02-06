@@ -1,3 +1,4 @@
+/*
 export default {
   'auth.login.title': 'Login',
   'auth.login.input.email': 'E-Mail',
@@ -11,3 +12,8 @@ export default {
   'auth.reset.title': 'Reset Password',
   'auth.reset.input.send': 'Send Password Reset Link'
 }
+*/
+
+import getLang from './index'
+
+export default getLang('en')

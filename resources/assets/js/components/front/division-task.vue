@@ -8,10 +8,10 @@
         <v-flex sm12 md6 offset-sm1>
           <v-card class="elevation-0 transparent">
             <v-card-title primary-title class="layout justify-center">
-              <div class="headline">La répartition des taches ménagères</div>
+              <div class="headline">{{ 'front.division-task.title' | translate }}</div>
             </v-card-title>
             <v-card-text>
-              Cotama vous demande vos goûts en matière de tâches ménagères. Si vous préférez passer l’aspirateur plutôt que de faire la vaisselle par exemple. Ces données permettent d’équilibrer les tâches selon vos goûts, mais ce n’est pas tout ! Vous n’aurez plus jamais de dispute avec cette phrase récurrente : « Encore moi ? Je l’ai fait il y a peu de temps ! »
+              {{ 'front.division-task.content' | translate }}
             </v-card-text>
             <v-list class="transparent">
 
@@ -20,11 +20,11 @@
                   <v-icon class="blue--text text--lighten-2">lnr lnr-history</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                  <v-list-tile-title>NON RÉPÉTITIVE</v-list-tile-title>
+                  <v-list-tile-title>{{ 'front.division-task.list.1.title' | translate }}</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
               <p>
-                Cotama prend en compte votre historique de mission afin d'équilibrer la distribution des tâches ménagère
+                {{ 'front.division-task.list.1.content' | translate }}
               </p>
 
               <v-list-tile>
@@ -32,22 +32,22 @@
                   <v-icon class="blue--text text--lighten-2">lnr lnr-user</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                  <v-list-tile-title>PROPRE À CHACUN</v-list-tile-title>
+                  <v-list-tile-title>{{ 'front.division-task.list.2.title' | translate }}</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
               <p>
-                Cotama examine vos goûts et ceux de votre foyer afin de satisfaire le plus grand nombre, le plus souvent possible. Si ce n'est pas le cas défiez vos ennemis à travers de mini-jeux afin d'éviter votre funeste destin!
+                {{ 'front.division-task.list.2.content' | translate }}
               </p>
               <v-list-tile>
                 <v-list-tile-action>
                   <v-icon class="blue--text text--lighten-2">lnr lnr-warning</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                  <v-list-tile-title>DEFIS</v-list-tile-title>
+                  <v-list-tile-title>{{ 'front.division-task.list.3.title' | translate }}</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
               <p>
-                En cas de désistement, ou d'une partie perdue, vous aurez un défi a réaliser !
+                {{ 'front.division-task.list.3.content' | translate }}
               </p>
             </v-list>
           </v-card>
@@ -56,7 +56,3 @@
     </v-container>
   </section>
 </template>
-
-<style>
-
-</style>
