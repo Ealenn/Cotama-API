@@ -7,7 +7,7 @@
       <v-btn flat class="hidden-xs-only" v-for="item in MenuItems" :key="item.title" @click="goTo(item.link)">{{ item.title }}</v-btn>
       <!-- Translate -->
       <v-menu offset-y>
-        <v-btn icon slot="activator"><v-icon>fa fa-language</v-icon></v-btn>
+        <v-btn flat slot="activator"><v-icon>{{ flag }} mr-2</v-icon> {{ lang }}</v-btn>
         <v-list>
           <v-list-tile v-for="item in MenuLang" :key="item.title" @click="this.window.location.href = ('/' + item.link)">
             <v-list-tile-title>
@@ -35,7 +35,7 @@
   export default {
     data: () => ({
       showToolbar: false,
-      styleToolbar: 'opacity: 0;',
+      styleToolbar: 'background-color:transparent!important;',
       MenuItems: [
         {
           title: 'Présentation',
@@ -75,6 +75,16 @@
         }
 
         return 'opacity: 0.5;'
+      },
+      lang: function () {
+        return document.querySelector('html').getAttribute('lang')
+      },
+      flag: function () {
+          var l = this.lang.toLowerCase()
+          if(l == 'en') {
+              l = 'gb'
+          }
+          return 'flag-icon flag-icon-' + l
       }
     },
     methods: {
@@ -115,11 +125,11 @@
       },
       onScroll (e) {
         var offsetTop = window.pageYOffset || document.documentElement.scrollTop
-        this.styleToolbar = 'opacity:' + (offsetTop/2)/100 + ';'
-        if(offsetTop > 100) {
-          this.showToolbar = true
+
+        if(offsetTop > 10) {
+          this.styleToolbar = ''
         } else {
-          this.showToolbar = false
+          this.styleToolbar = 'background-color:transparent!important;'
         }
       }
     }
