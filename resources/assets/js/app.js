@@ -5,9 +5,21 @@ import 'vuetify/dist/vuetify.min.css'
 import "vue-material-design-icons/styles.css"
 import VueAxios from 'vue-axios'
 import axios from 'axios'
-
+import Vuex from 'vuex'
+import vuexI18n from 'vuex-i18n'
 import router from './router/'
 
+Vue.use(Vuex)
+
+const store = new Vuex.Store()
+Vue.use(vuexI18n.plugin, store)
+
+// Translate
+let lang = document.querySelector('html').getAttribute('lang')
+Vue.i18n.add(lang, require('./translate/' + lang).default)
+Vue.i18n.set(lang)
+
+// Axios
 axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest',
 };
@@ -29,7 +41,7 @@ Vue.use(Vuetify, { theme: {
     warning: '#FFC107'
   }})
 
-import App from './App.vue'
+import App from './components/app/app.vue'
 
 /* eslint-disable no-new */
 new Vue({

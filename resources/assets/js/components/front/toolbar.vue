@@ -1,6 +1,6 @@
 <template>
   <v-toolbar fixed flat dark color="primary" class="white" :style="styleToolbar" v-scroll="onScroll">
-    <v-toolbar-title>Cotama</v-toolbar-title>
+    <v-toolbar-title>{{ 'front.toolbar.title' | translate }}</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items>
       <!-- Menu -->
@@ -32,21 +32,23 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+
   export default {
     data: () => ({
       showToolbar: false,
       styleToolbar: 'opacity: 0;',
       MenuItems: [
         {
-          title: 'Présentation',
+          title: Vue.i18n.translate('front.toolbar.menu.presentation'),
           link: 'list-icon'
         },
         {
-          title: 'Fonctionnalités',
+          title: Vue.i18n.translate('front.toolbar.menu.features'),
           link: 'features'
         },
         {
-          title: 'Mode de jeu',
+          title: Vue.i18n.translate('front.toolbar.menu.game_mode'),
           link: 'game-mode'
         }
       ],
@@ -75,6 +77,9 @@
         }
 
         return 'opacity: 0.5;'
+      },
+      trans: function () {
+        return this.$t
       }
     },
     methods: {

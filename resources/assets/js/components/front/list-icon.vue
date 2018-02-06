@@ -7,14 +7,7 @@
       justify-center
       class="mb-2"
     >
-      <!-- <v-flex xs12 sm4 class="my-3">
-        <div class="text-xs-center">
-          <h2 class="headline">Theee best way to start developing</h2>
-          <span class="subheading">
-                Cras facilisis mi vitae nunc
-              </span>
-        </div>
-      </v-flex> -->
+
       <v-flex xs10 offset-xs1>
         <v-container grid-list-xl>
           <v-layout row wrap align-center>
@@ -29,10 +22,10 @@
                   </v-flex>
                   <v-flex xs9>
                       <div class="headline">
-                        Tous ensemble
+                        {{ 'front.list-icon.1.title' | translate }}
                       </div>
                     <div>
-                      Créez votre compte et un foyer afin d'inviter votre famille ou vos colocataires à vous rejoindre
+                      {{ 'front.list-icon.1.content' | translate }}
                     </div>
                   </v-flex>
                 </v-layout>
@@ -49,10 +42,10 @@
                   </v-flex>
                   <v-flex xs9>
                       <div class="headline">
-                        Missions
+                        {{ 'front.list-icon.2.title' | translate }}
                       </div>
                     <div>
-                      Ajoutez un ordre de mission pour une date donnée et laissez Cotama distribuer les tâches de manière équitable
+                      {{ 'front.list-icon.2.content' | translate }}
                     </div>
                   </v-flex>
                 </v-layout>
@@ -69,10 +62,10 @@
                   </v-flex>
                   <v-flex xs9>
                       <div class="headline">
-                        Cadeaux
+                        {{ 'front.list-icon.3.title' | translate }}
                       </div>
                     <div>
-                      Après chaque mission, gagnez des points, des trophées et plein de surprises !
+                      {{ 'front.list-icon.3.content' | translate }}
                     </div>
                   </v-flex>
                 </v-layout>
@@ -83,6 +76,7 @@
         </v-container>
       </v-flex>
     </v-layout>
+
   </section>
 </template>
 

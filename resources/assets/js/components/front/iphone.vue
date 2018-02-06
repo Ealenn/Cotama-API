@@ -5,14 +5,14 @@
       <v-flex sm4>
         <div :class="'py-5 px-5 ' + color1" @mouseover="mouseOver(1)" @mouseleave="mouseClear()">
           <v-icon style="font-size: 70px">fa-play-circle</v-icon>
-          <p class="display-1 mt-2">Missions</p>
-          <p>Maintenant vous avez vos instructions, que la guerre commence! Mécontant du résultat ? Défiez vos amis ou votre famille dans des duels sans merci !</p>
+          <p class="display-1 mt-2">{{ 'front.iphone.1.title' | translate }}</p>
+          <p>{{ 'front.iphone.1.content' | translate }}</p>
         </div>
 
         <div :class="'py-5 px-5 ' + color2" v-on:mouseover="mouseOver(2)" @mouseleave="mouseClear()">
           <v-icon style="font-size: 70px">fa-trophy</v-icon>
-          <p class="display-1 mt-2">Trophées</p>
-          <p>Chaque trophée est unique dans sa catégorie, prouvez à tout le monde que vous êtes le roi du rangement et débloquez le succès Tetris!</p>
+          <p class="display-1 mt-2">{{ 'front.iphone.2.title' | translate }}</p>
+          <p>{{ 'front.iphone.2.content' | translate }}</p>
         </div>
       </v-flex>
 
@@ -23,14 +23,14 @@
       <v-flex sm4>
         <div :class="'py-5 px-5 ' + color3" v-on:mouseover="mouseOver(3)" @mouseleave="mouseClear()">
           <v-icon style="font-size: 70px">fa-home</v-icon>
-          <p class="display-1 mt-2">Foyers</p>
-          <p>Gérez votre foyer, changez le mode de jeu et affichez les profils de vos amis en quelques clics afin d’établir une stratégie d'attaque!</p>
+          <p class="display-1 mt-2">{{ 'front.iphone.3.title' | translate }}</p>
+          <p>{{ 'front.iphone.3.content' | translate }}</p>
         </div>
 
         <div :class="'py-5 px-5 ' + color4" v-on:mouseover="mouseOver(4)" @mouseleave="mouseClear()">
           <v-icon style="font-size: 70px">fa-heart</v-icon>
-          <p class="display-1 mt-2">Préférences</p>
-          <p>Si vous préférez faire la vaisselle plutôt que de laver les sols il faut le dire ! Chaque détail a son importance avec Cotama</p>
+          <p class="display-1 mt-2">{{ 'front.iphone.4.title' | translate }}</p>
+          <p>{{ 'front.iphone.4.content' | translate }}</p>
         </div>
       </v-flex>
 

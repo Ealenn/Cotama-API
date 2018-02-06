@@ -6,40 +6,40 @@
         <v-flex xs12 md6 lg3 class="text-xs-center px-5 mt-2">
           <v-icon x-large class="white--text">lnr lnr-users</v-icon>
           <div class="headline">
-            Comptes
+            {{ 'front.list-icon-pres.1.title' | translate }}
           </div>
           <p>
-            Créez votre compte gratuitement, invitez votre famille ou vos colocataires dans un foyer
+            {{ 'front.list-icon-pres.1.content' | translate }}
           </p>
         </v-flex>
 
         <v-flex xs12 md6 lg3 class="text-xs-center px-5 mt-2">
           <v-icon x-large class="white--text">lnr lnr-calendar-full</v-icon>
           <div class="headline">
-            Planifiez
+            {{ 'front.list-icon-pres.2.title' | translate }}
           </div>
           <p>
-            Planifiez à l'avance vos taches ménagères à effectuer et selectionnez les pour créer une mission.
+            {{ 'front.list-icon-pres.2.content' | translate }}
           </p>
         </v-flex>
 
         <v-flex xs12 md6 lg3 class="text-xs-center px-5 mt-2">
           <v-icon x-large class="white--text">lnr lnr-smile</v-icon>
           <div class="headline">
-            Amusez-vous !
+            {{ 'front.list-icon-pres.3.title' | translate }}
           </div>
           <p>
-            Cotama distribue les tâches ! Vous recevez votre ordre de mission directement dans le jeu
+            {{ 'front.list-icon-pres.3.content' | translate }}
           </p>
         </v-flex>
 
         <v-flex xs12 md6 lg3 class="text-xs-center px-5 mt-2">
           <v-icon x-large class="white--text">lnr lnr-dice</v-icon>
           <div class="headline">
-            Défiez
+            {{ 'front.list-icon-pres.4.title' | translate }}
           </div>
           <p>
-            Des mini-jeux et des défis déjanté mettent de l'ambiance lors de vos missions
+            {{ 'front.list-icon-pres.4.content' | translate }}
           </p>
         </v-flex>
 
