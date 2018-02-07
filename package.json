@@ -16,6 +16,7 @@
         "css-loader": "^0.28.9",
         "flag-icon-css": "^2.9.0",
         "laravel-mix": "^1.0",
+        "md5": "^2.2.1",
         "postcss-loader": "^2.0.10",
         "style-loader": "^0.19.1",
         "vue": "^2.5.13",
@@ -25,7 +26,7 @@
         "vue-material-design-icons": "^1.0.0",
         "vue-router": "^3.0.1",
         "vue-videobg": "^2.0.0",
-        "vuetify": "^0.17.6",
+        "vuetify": "^1.0.0-beta.6",
         "vuex": "^3.0.1",
         "vuex-i18n": "^1.10.5",
         "webpack": "^3.10.0"

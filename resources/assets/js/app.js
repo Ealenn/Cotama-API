@@ -11,7 +11,25 @@ import router from './router/'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store()
+const store = new Vuex.Store({
+  state: {
+    drawer: false,
+    pageTitle: 'Accueil',
+    user: {}
+  },
+  mutations: {
+    setDrawer: (state, newDrawer) => {
+      state.drawer = newDrawer
+    },
+    toggleDrawer: state => {
+      state.drawer = !state.drawer
+    },
+    setPageTitle: (state, title) => {
+      state.pageTitle = title
+      state.drawer = title === 'Home'
+    }
+  }
+})
 Vue.use(vuexI18n.plugin, store)
 
 // Translate
@@ -25,16 +43,13 @@ axios.defaults.headers.common = {
 };
 axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
-// axios.get('/api/users')
-// .then(response => {
-// console.log(response.data);
-// });
 
+// Vue
 Vue.use(VueAxios, axios)
 Vue.use(Vuetify, { theme: {
-    primary: '#ee44aa',
-    secondary: '#424242',
-    accent: '#82B1FF',
+    primary: "#03A9F4",
+    secondary: "#2196F3",
+    accent: "#1976D2",
     error: '#FF5252',
     info: '#2196F3',
     success: '#4CAF50',
@@ -46,6 +61,7 @@ import App from './components/app/app.vue'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

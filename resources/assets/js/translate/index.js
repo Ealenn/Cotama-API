@@ -14,6 +14,9 @@ var getLang = function (lang) {
   const front_gameMode = require('./' + lang + '/front/gamemode').default
   const front_footer = require('./' + lang + '/front/footer').default
 
+  const app_components_account = require('./' + lang + '/game/components/account').default
+  const app_layout_drawer = require('./' + lang + '/game/layout/drawer').default
+
   return {
     'auth.login':auth_login,
     'auth.email':auth_email,
@@ -27,7 +30,9 @@ var getLang = function (lang) {
     'front.play-party': front_playParty,
     'front.division-task': front_divisionTask,
     'front.game-mode': front_gameMode,
-    'front.footer': front_footer
+    'front.footer': front_footer,
+    'app.components.account': app_components_account,
+    'app.layout.drawer': app_layout_drawer
   }
 }
 

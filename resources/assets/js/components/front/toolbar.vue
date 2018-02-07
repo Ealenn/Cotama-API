@@ -6,16 +6,7 @@
       <!-- Menu -->
       <v-btn flat class="hidden-xs-only" v-for="item in MenuItems" :key="item.title" @click="goTo(item.link)">{{ item.title }}</v-btn>
       <!-- Translate -->
-      <v-menu offset-y>
-        <v-btn flat slot="activator"><v-icon>{{ flag }} mr-2</v-icon> {{ lang }}</v-btn>
-        <v-list>
-          <v-list-tile v-for="item in MenuLang" :key="item.title" @click="this.window.location.href = ('/' + item.link)">
-            <v-list-tile-title>
-              <v-icon>{{ item.icon }}</v-icon> {{ item.title }}
-            </v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
+      <Lang></Lang>
       <!-- Menu Drop More -->
       <v-menu offset-y class="hidden-sm-and-up">
         <v-btn icon slot="activator"><v-icon>more_vert</v-icon></v-btn>
@@ -33,8 +24,12 @@
 
 <script>
   import Vue from 'vue'
+  import Lang from '../lang'
 
   export default {
+    components: {
+      Lang
+    },
     data: () => ({
       showToolbar: false,
       styleToolbar: 'background-color:transparent!important;',
@@ -51,23 +46,6 @@
           title: Vue.i18n.translate('front.toolbar.menu.game_mode'),
           link: 'game-mode'
         }
-      ],
-      MenuLang: [
-        {
-          title: 'Français',
-          icon: 'flag-icon flag-icon-fr',
-          link: 'fr'
-        },
-        {
-          title: 'English',
-          icon: 'flag-icon flag-icon-gb',
-          link: 'en'
-        },
-        {
-          title: 'Deutsch',
-          icon: 'flag-icon flag-icon-de',
-          link: 'de'
-        }
       ]
     }),
     computed: {
@@ -77,16 +55,6 @@
         }
 
         return 'opacity: 0.5;'
-      },
-      lang: function () {
-        return document.querySelector('html').getAttribute('lang')
-      },
-      flag: function () {
-          var l = this.lang.toLowerCase()
-          if(l == 'en') {
-              l = 'gb'
-          }
-          return 'flag-icon flag-icon-' + l
       }
     },
     methods: {

@@ -1,7 +1,7 @@
 <template>
   <section>
 
-    <v-dialog v-model="dialog" width="600px">
+    <v-dialog v-model="dialog" max-width="600px">
       <v-card>
 
         <v-toolbar card dark color="primary">
@@ -14,12 +14,12 @@
           </v-menu>
         </v-toolbar>
 
-        <v-card-text class="text-xs-center">
+        <v-card-text class="text-xs-center" style="overflow: hidden">
           {{ 'front.hero.dialog.text' | translate }}
           <v-form action="https://cotama.us13.list-manage.com/subscribe/post?u=72c8a8b0fc6ccbb1984b573e8&id=2b0776d6a6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">
               <v-text-field prepend-icon="email" type="email" name="EMAIL" class="email" id="mce-EMAIL" placeholder="mail" required></v-text-field>
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_72c8a8b0fc6ccbb1984b573e8_2b0776d6a6" tabindex="-1" value=""></div>
+              <div aria-hidden="true"><input type="text" name="b_72c8a8b0fc6ccbb1984b573e8_2b0776d6a6" tabindex="-1" value=""></div>
               <v-btn type="submit" color="primary" @click="dialog = false">{{ 'front.hero.dialog.valide' | translate }}</v-btn>
             </div>
           </v-form>
