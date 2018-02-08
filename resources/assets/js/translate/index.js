@@ -1,4 +1,6 @@
 var getLang = function (lang) {
+  const validation = require('./' + lang + '/validation').default
+
   const auth_email = require('./' + lang + '/auth/email').default
   const auth_login = require('./' + lang + '/auth/login').default
   const auth_register = require('./' + lang + '/auth/register').default
@@ -18,6 +20,7 @@ var getLang = function (lang) {
   const app_layout_drawer = require('./' + lang + '/game/layout/drawer').default
 
   return {
+    validation,
     'auth.login':auth_login,
     'auth.email':auth_email,
     'auth.register': auth_register,

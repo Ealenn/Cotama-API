@@ -4,5 +4,6 @@ export default {
   'input.password': 'Password',
   'link.reset_password': 'Forgot your password ?',
   'input.login': 'Log in',
-  'input.register': 'Register'
+  'input.register': 'Register',
+  'error': 'Incorrect account name or password'
 }

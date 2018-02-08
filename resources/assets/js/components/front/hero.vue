@@ -16,11 +16,21 @@
 
         <v-card-text class="text-xs-center" style="overflow: hidden">
           {{ 'front.hero.dialog.text' | translate }}
-          <v-form action="https://cotama.us13.list-manage.com/subscribe/post?u=72c8a8b0fc6ccbb1984b573e8&id=2b0776d6a6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <v-form v-model="formMail" action="https://cotama.us13.list-manage.com/subscribe/post?u=72c8a8b0fc6ccbb1984b573e8&id=2b0776d6a6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" lazy-validation>
             <div id="mc_embed_signup_scroll">
-              <v-text-field prepend-icon="email" type="email" name="EMAIL" class="email" id="mce-EMAIL" placeholder="mail" required></v-text-field>
+              <v-text-field
+                v-model="formMailEmail"
+                :rules="[v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || this.$t('validation.email')]"
+                prepend-icon="mail_outline"
+                type="email"
+                name="EMAIL"
+                class="email"
+                id="mce-EMAIL"
+                placeholder=""
+                required>
+              </v-text-field>
               <div aria-hidden="true"><input type="text" name="b_72c8a8b0fc6ccbb1984b573e8_2b0776d6a6" tabindex="-1" value=""></div>
-              <v-btn type="submit" color="primary" @click="dialog = false">{{ 'front.hero.dialog.valide' | translate }}</v-btn>
+              <v-btn :disabled="!formMail" type="submit" color="primary" @click="dialog = false">{{ 'front.hero.dialog.valide' | translate }}</v-btn>
             </div>
           </v-form>
         </v-card-text>
@@ -74,6 +84,8 @@
   export default {
     data: () => ({
       dialog: false,
+      formMail: false,
+      formMailEmail: '',
       intervalId: null,
       actualId: 0,
       word: []

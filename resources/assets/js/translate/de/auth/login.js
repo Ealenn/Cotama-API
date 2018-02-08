@@ -4,5 +4,6 @@ export default {
   'input.password': 'Passwort',
   'link.reset_password': 'Passwort vergessen ?',
   'input.login': 'Einloggen',
-  'input.register': 'Registrieren'
+  'input.register': 'Registrieren',
+  'error': 'Falscher Kontoname oder Passwort'
 }

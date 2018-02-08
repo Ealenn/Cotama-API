@@ -104,7 +104,7 @@
       },
       avatar: function() {
         if(this.user.email) {
-          return 'https://www.gravatar.com/avatar/' + md5('') + '?d=https%3A%2F%2Fcotama.herokuapp.com%2Fimg%2Fgame%2Fnophoto.gif'
+          return 'https://www.gravatar.com/avatar/' + md5(this.user.email) + '?d=https%3A%2F%2Fcotama.herokuapp.com%2Fimg%2Fgame%2Fnophoto.gif'
         } else {
           return '/img/loading/cloud.gif'
         }
