@@ -15,8 +15,7 @@ class FoyerPutRequest extends FormRequest
     public function authorize()
     {
         $user = $this->user();
-        $foyer = Foyer::find($this->route('foyer'))->first();
-        return Foyer::isAdminFoyer($user, $foyer);
+        return Foyer::isAdminFoyer($user, $this->route('foyer'));
     }
 
     /**
