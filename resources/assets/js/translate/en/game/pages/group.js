@@ -1,10 +1,10 @@
 export default {
-  'notification.title': 'Vous n\'avez pas encore d\'allier !',
-  'notification.text': 'Vous pouvez créer un foyer en cliquant sur le logo en bas de l\'ecran.',
-  'menu.update': 'Modifier',
-  'menu.exit': 'Quitter le groupe',
-  'admin': 'Administrateur',
-  'member': 'Membre',
-  'title': 'Titre',
-  'save': 'Sauvegarder'
+  'notification.title': 'You do not have any allies yet!',
+  'notification.text': 'You can create a fireplace by clicking on the logo at the bottom of the screen.',
+  'menu.update': 'Update',
+  'menu.exit': 'Leave the group',
+  'admin': 'Administrator',
+  'member': 'Member',
+  'title': 'Title',
+  'save': 'Save'
 }

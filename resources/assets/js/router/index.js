@@ -5,6 +5,7 @@ Vue.use(Router)
 
 import HomeView from '../components/app/pages/home'
 import GroupView from '../components/app/pages/group'
+import GroupAddView from '../components/app/pages/group_add'
 
 export default new Router({
   routes: [
@@ -17,6 +18,11 @@ export default new Router({
       path: '/group',
       name: 'GroupView',
       component: GroupView
+    },
+    {
+      path: '/group/add',
+      name: 'GroupAddView',
+      component: GroupAddView
     }
   ]
 })

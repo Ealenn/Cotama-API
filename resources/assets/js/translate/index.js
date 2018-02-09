@@ -19,6 +19,8 @@ var getLang = function (lang) {
   const app_components_account = require('./' + lang + '/game/components/account').default
   const app_layout_drawer = require('./' + lang + '/game/layout/drawer').default
 
+  const app_pages_group = require('./' + lang + '/game/pages/group').default
+
   return {
     validation,
     'auth.login':auth_login,
@@ -35,7 +37,8 @@ var getLang = function (lang) {
     'front.game-mode': front_gameMode,
     'front.footer': front_footer,
     'app.components.account': app_components_account,
-    'app.layout.drawer': app_layout_drawer
+    'app.layout.drawer': app_layout_drawer,
+    'app.pages.group': app_pages_group
   }
 }
 

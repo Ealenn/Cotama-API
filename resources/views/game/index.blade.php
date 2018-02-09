@@ -15,6 +15,7 @@
 <body>
   <div id="app"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
   <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

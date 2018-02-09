@@ -8,13 +8,17 @@ import axios from 'axios'
 import Vuex from 'vuex'
 import vuexI18n from 'vuex-i18n'
 import router from './router/'
+import VueMasonry from 'vue-masonry-css'
 
+Vue.use(VueMasonry)
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
     drawer: false,
     pageTitle: 'Accueil',
+    snackbar: false,
+    snackbarText: '',
     user: {}
   },
   mutations: {

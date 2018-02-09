@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar dark color="primary" tabs>
+    <v-toolbar :dark="!dark" :flat="dark" :color="color" tabs>
       <v-toolbar-side-icon @click="openDrawer()"></v-toolbar-side-icon>
       <v-toolbar-title>{{ pageTitle }}</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -17,6 +17,12 @@
       Lang,
       Account
     },
+    props: {
+      dark: {
+        type: Boolean,
+        default: false
+      }
+    },
     data: () => ({
       tabs: null,
     }),
@@ -28,6 +34,13 @@
     computed: {
       pageTitle: function () {
         return this.$store.state.pageTitle
+      },
+      color: function () {
+        if (this.dark) {
+          return 'white'
+        } else {
+          return 'primary'
+        }
       }
     }
   }

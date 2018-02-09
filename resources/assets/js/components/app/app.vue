@@ -1,23 +1,46 @@
 <template>
   <v-app>
-    <ToolBar></ToolBar>
-    <Drawer></Drawer>
+    <div class="hidden-sm-and-down" style="height: 100%;">
+      <v-card flat style="height: 100%;">
+        <v-toolbar dark color="primary" flat extended></v-toolbar>
+        <Drawer></Drawer>
+        <v-layout row pb-2 style="margin-top: -40px;">
+          <v-flex xs8 offset-xs2>
+            <v-card class="card--flex-toolbar">
+              <ToolBar dark></ToolBar>
+              <v-divider></v-divider>
+              <v-card-text class="pb-5">
+                <v-container fluid>
+                  <transition name="fade">
+                    <router-view> </router-view>
+                  </transition>
+                </v-container>
+              </v-card-text>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-card>
+    </div>
 
-    <v-container fluid>
-      <transition name="fade">
-        <router-view></router-view>
-      </transition>
-    </v-container>
+    <div class="hidden-md-and-up">
+      <ToolBar></ToolBar>
+      <Drawer></Drawer>
 
+      <v-container fluid>
+        <transition name="fade">
+          <router-view></router-view>
+        </transition>
+      </v-container>
+    </div>
   </v-app>
 </template>
 
 <style>
   .fade-enter-active {
-    transition: opacity 2s
+    transition: opacity 1s
   }
   .fade-leave-active {
-    transition: opacity .5s
+    transition: opacity 0s
   }
   .fade-enter, .fade-leave-active {
     opacity: 0
@@ -43,6 +66,7 @@
         });
     },
     data: () => ({
-    }),
+      truc: ''
+    })
   }
 </script>

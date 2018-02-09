@@ -83,16 +83,10 @@
           link: '/mission'
         },
         {
-          title: this.$t('app.layout.drawer.group.title'),
-          subtitle: this.$t('app.layout.drawer.group.subtitle'),
-          icon: 'group_work',
-          link: '/group'
-        },
-        {
           title: this.$t('app.layout.drawer.friends.title'),
           subtitle: this.$t('app.layout.drawer.friends.subtitle'),
           icon: 'supervisor_account',
-          link: '/friends'
+          link: '/group'
         },
         {
           title: this.$t('app.layout.drawer.account.title'),
