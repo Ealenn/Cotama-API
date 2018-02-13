@@ -13,11 +13,12 @@ let mix = require('laravel-mix');
 
 mix.disableNotifications();
 
-mix
-  .js('resources/assets/js/app.js', 'public/js')
-  .version();
+if (mix.inProduction()) {
+  mix.version();
+}
 
 mix
-  .js('resources/assets/js/front.js', 'public/js')
-  .version();
+  .js('resources/assets/js/app.js', 'public/js');
 
+mix
+  .js('resources/assets/js/front.js', 'public/js');
