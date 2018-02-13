@@ -6,6 +6,7 @@ os:
 install:
   - npm install cross-env
   - npm install
+  - npm run prod
   - composer install --dev
   - wget https://phar.phpunit.de/phpunit.phar
   - chmod +x phpunit.phar
