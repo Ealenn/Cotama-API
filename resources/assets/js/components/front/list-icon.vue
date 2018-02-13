@@ -12,7 +12,9 @@
         <v-container grid-list-xl>
           <v-layout row wrap align-center>
 
-            <v-flex xs12 md4 class="mt-2">
+            <v-flex
+              v-scroll-reveal.reset v-scroll-reveal="{ delay: 1500 }"
+              xs12 md4 class="mt-2">
               <v-card class="elevation-0 transparent">
                 <v-layout row>
                   <v-flex xs3>
@@ -32,7 +34,9 @@
               </v-card>
             </v-flex>
 
-            <v-flex xs12 md4 class="mt-2">
+            <v-flex
+              v-scroll-reveal.reset v-scroll-reveal="{ delay: 2000 }"
+              xs12 md4 class="mt-2">
               <v-card class="elevation-0 transparent">
                 <v-layout rox>
                   <v-flex xs3>
@@ -52,7 +56,9 @@
               </v-card>
             </v-flex>
 
-            <v-flex xs12 md4 class="mt-2">
+            <v-flex
+              v-scroll-reveal.reset v-scroll-reveal="{ delay: 2500 }"
+              xs12 md4 class="mt-2">
               <v-card class="elevation-0 transparent">
                 <v-layout rox>
                   <v-flex xs3>

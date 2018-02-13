@@ -23,7 +23,7 @@
           </v-card>
         </v-flex>
         <v-flex sm12 md4 offset-sm1>
-          <img src="/img/macbook-pro.png" width="90%" />
+          <img v-scroll-reveal.reset v-scroll-reveal="{ delay: 500 }" src="/img/macbook-pro.png" width="90%" />
         </v-flex>
       </v-layout>
     </v-container>

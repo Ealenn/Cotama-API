@@ -17,11 +17,14 @@
       </v-flex>
 
       <v-flex sm4>
-        <img :src="'/img/' + picture"/>
+        <transition name="fade">
+          <img :src="'/img/' + picture"
+               :key="picture">
+        </transition>
       </v-flex>
 
       <v-flex sm4>
-        <div :class="'py-5 px-5 ' + color3" v-on:mouseover="mouseOver(3)" @mouseleave="mouseClear()">
+        <div :class="' py-5 px-5 ' + color3" v-on:mouseover="mouseOver(3)" @mouseleave="mouseClear()">
           <v-icon style="font-size: 70px">fa-home</v-icon>
           <p class="display-1 mt-2">{{ 'front.iphone.3.title' | translate }}</p>
           <p>{{ 'front.iphone.3.content' | translate }}</p>
@@ -38,10 +41,16 @@
   </section>
 </template>
 
-<style>
+<style scoped>
+  .application .theme--light.icon, .theme--light .icon {
+    color: inherit;
+  }
   .txt-white{
-    color:white;
+    color:white!important;
     cursor: pointer
+  }
+  .fade-leave-active{
+    position: absolute;
   }
 </style>
 
@@ -50,11 +59,15 @@
     data: () => ({
       picture: "iphone_home.png",
       color_hover: "blue lighten-1 theme--dark txt-white",
+      color_normal: 'secondary--text',
       color1: null,
       color2: null,
       color3: null,
       color4: null
     }),
+    mounted() {
+      this.mouseClear()
+    },
     methods: {
       mouseOver: function (id) {
         switch (id) {
@@ -76,12 +89,12 @@
             break
         }
       },
-      mouseClear: function (id) {
+      mouseClear: function () {
         this.picture = "iphone_home.png"
-        this.color1 = ""
-        this.color2 = ""
-        this.color3 = ""
-        this.color4 = ""
+        this.color1 = this.color_normal
+        this.color2 = this.color_normal
+        this.color3 = this.color_normal
+        this.color4 = this.color_normal
       }
 
     }

@@ -2,7 +2,10 @@ import Vue from 'vue'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import "vue-material-design-icons/styles.css"
+import 'vue-material-design-icons/styles.css'
+import 'vue2-animate/dist/vue2-animate.min.css'
+import VueScrollReveal from 'vue-scroll-reveal'
+
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 import Vuex from 'vuex'
@@ -10,6 +13,7 @@ import vuexI18n from 'vuex-i18n'
 // import translationFr from './translate/fr'
 // import translationEn from './translate/en'
 
+Vue.use(VueScrollReveal)
 Vue.use(Vuex)
 
 const store = new Vuex.Store()

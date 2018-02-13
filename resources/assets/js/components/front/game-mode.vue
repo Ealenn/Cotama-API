@@ -1,5 +1,6 @@
 <template>
-  <section id="game-mode" class="primary">
+  <section id="game-mode" class="secondary">
+    <v-parallax src="/img/shape-bg-small.png" style="height: auto!important">
     <v-layout
       column
       wrap
@@ -7,7 +8,8 @@
       align-center
       justify-center
     >
-      <v-flex xs12 class="my-3 white--text">
+      <v-flex
+        xs12 class="my-3 white--text">
         <div class="text-xs-center">
           <h2 class="headline">{{ 'front.game-mode.title' | translate }}</h2>
           <span class="subheading">
@@ -19,11 +21,14 @@
         </div>
       </v-flex>
 
-      <v-flex xs10 offset-xs1>
-        <v-container grid-list-xl>
-          <v-layout row wrap align-center>
+      <v-flex
+        xs11 offset-xs1>
+        <v-container grid-list-xl style="padding: 0!important;">
+          <v-layout row wrap align-center style="padding: 0!important;">
 
-            <v-flex xs12 md6>
+            <v-flex
+              v-scroll-reveal.reset v-scroll-reveal="{ delay: 1000 }"
+              xs12 md6>
               <v-card class="elevation-0 transparent white--text">
                 <v-card-title primary-title>
                   <h3 class="headline mb-0">
@@ -37,8 +42,9 @@
                 </v-card-title>
               </v-card>
             </v-flex>
-
-            <v-flex xs12 md6>
+            <v-flex
+              v-scroll-reveal.reset v-scroll-reveal="{ delay: 1500 }"
+              xs12 md6>
               <v-card class="elevation-0 transparent white--text">
                 <v-card-title primary-title>
                   <h3 class="headline mb-0">
@@ -57,6 +63,7 @@
         </v-container>
       </v-flex>
     </v-layout>
+    </v-parallax>
   </section>
 </template>
 

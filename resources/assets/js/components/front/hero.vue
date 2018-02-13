@@ -4,7 +4,9 @@
     <v-dialog v-model="dialog" max-width="600px">
       <v-card>
 
-        <v-toolbar card dark color="primary">
+        <v-toolbar
+          v-scroll-reveal.reset v-scroll-reveal="{ delay: 500 }"
+          card dark color="primary">
           <v-toolbar-title>{{ 'front.hero.dialog.title' | translate }}</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-menu bottom right offset-y>
@@ -45,13 +47,15 @@
         class="white--text"
       >
 
-        <h1 class="white--text mb-2 display-1 text-xs-center">
-          {{ 'front.hero.title' | translate }} {{ aWord }}
-        </h1>
+        <transition name="fade">
+          <h1 class="white--text mb-2 display-1 text-xs-center" :key="aWord">
+            {{ 'front.hero.title' | translate }} {{ aWord }}
+          </h1>
+        </transition>
 
         <div class="subheading mb-3 text-xs-center">
-          <h2>{{ 'front.hero.subtitle' | translate }}</h2>
-          <p>{{ 'front.hero.content' | translate }}</p>
+          <h2 v-scroll-reveal.reset v-scroll-reveal="{ delay: 500 }">{{ 'front.hero.subtitle' | translate }}</h2>
+          <p v-scroll-reveal.reset v-scroll-reveal="{ delay: 1000 }">{{ 'front.hero.content' | translate }}</p>
         </div>
 
         <div class="mt-5">
@@ -76,8 +80,10 @@
   </section>
 </template>
 
-<style>
-
+<style scoped>
+  .fade-leave-active{
+    display: none;
+  }
 </style>
 
 <script>

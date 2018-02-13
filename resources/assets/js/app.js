@@ -2,7 +2,9 @@ import Vue from 'vue'
 
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
-import "vue-material-design-icons/styles.css"
+import 'vue-material-design-icons/styles.css'
+import 'vue2-animate/dist/vue2-animate.min.css'
+
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 import Vuex from 'vuex'

@@ -1,25 +1,27 @@
 <template>
-  <v-toolbar fixed flat dark color="primary" class="white" :style="styleToolbar" v-scroll="onScroll">
-    <v-toolbar-title>{{ 'front.toolbar.title' | translate }}</v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-toolbar-items>
-      <!-- Menu -->
-      <v-btn flat class="hidden-xs-only" v-for="item in MenuItems" :key="item.title" @click="goTo(item.link)">{{ item.title }}</v-btn>
-      <!-- Translate -->
-      <Lang></Lang>
-      <!-- Menu Drop More -->
-      <v-menu offset-y class="hidden-sm-and-up">
-        <v-btn icon slot="activator"><v-icon>more_vert</v-icon></v-btn>
-        <v-list>
-          <v-list-tile v-for="item in MenuItems" :key="item.title" @click="goTo(item.link)">
-            <v-list-tile-title>
-              {{ item.title }}
-            </v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
-    </v-toolbar-items>
-  </v-toolbar>
+  <transition name="fade" >
+    <v-toolbar :key="styleToolbar" fixed flat dark color="primary" class="white" :style="styleToolbar" v-scroll="onScroll">
+      <v-toolbar-title>{{ 'front.toolbar.title' | translate }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <!-- Menu -->
+        <v-btn flat class="hidden-xs-only" v-for="item in MenuItems" :key="item.title" @click="goTo(item.link)">{{ item.title }}</v-btn>
+        <!-- Translate -->
+        <Lang></Lang>
+        <!-- Menu Drop More -->
+        <v-menu offset-y class="hidden-sm-and-up">
+          <v-btn icon slot="activator"><v-icon>more_vert</v-icon></v-btn>
+          <v-list>
+            <v-list-tile v-for="item in MenuItems" :key="item.title" @click="goTo(item.link)">
+              <v-list-tile-title>
+                {{ item.title }}
+              </v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+      </v-toolbar-items>
+    </v-toolbar>
+  </transition>
 </template>
 
 <script>

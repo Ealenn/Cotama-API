@@ -3,7 +3,7 @@
     <v-container grid-list-xl>
       <v-layout row wrap justify-center class="my-5">
         <v-flex sm12 md5 text-xs-center layout align-center justify-center>
-          <img src="/img/devices2.png" width="90%" />
+          <img v-scroll-reveal.reset v-scroll-reveal="{ delay: 500 }" src="/img/devices2.png" width="90%" />
         </v-flex>
         <v-flex sm12 md6 offset-sm1>
           <v-card class="elevation-0 transparent">
