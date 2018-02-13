@@ -1,25 +1,27 @@
 language: php
 php:
-- 7.1.9
+  - 7.1.9
 os:
-- linux
+  - linux
 install:
-- composer install --dev
-- wget https://phar.phpunit.de/phpunit.phar
-- chmod +x phpunit.phar
-- php artisan migrate --database="testing"
-- php phpunit.phar --version
+  - npm install cross-env
+  - npm install
+  - composer install --dev
+  - wget https://phar.phpunit.de/phpunit.phar
+  - chmod +x phpunit.phar
+  - php artisan migrate --database="testing"
+  - php phpunit.phar --version
 script:
-- travis_wait php phpunit.phar
+  - travis_wait php phpunit.phar
 deploy:
   provider: heroku
   api_key:
     secure: s/NWoiEi0SzzaQAQhBa5TsD11liI0v/orzhvCjy9CTHLtnNsZTUyCnkpOAw98OBFCiUQtATbpVMgxlN6r+Y5wjuSIfypNUTT09bOHJT84yIpKxJu2UP4svcuCd/tgUxzQnx6+1oy5jM0yFGlLpj4OKWdUF47j7gPj1H+SVfdwx2qinr6396LXn1r12JiqvZJZTmBokjgk/7yY9LBeP52j9sB1lJ9254qOfmHqWiOZktfnnn12W1zTWsnmZy+a2SFT4ZZzMS7ASxF5e4gXNFTIAG4qLMMWmWSsF9BPU5vaf+LRehoprx2Aq1vgX5mdIMqCwLnu+L83wgzFPczaFGy8ni6QqbcCPlkjCTxgPjBKL3RSAkYZLd6RsS1lTjHqeFk35BU7U72zVy/eQ4PioUXoH+Y06699N5WqFaLg8wkSfEZav+zGDdDNErw3xdQYzeGNB6iFBVTDYrEo17LpulYHXkK79Tou4KclKPxXUp6nwBxdfz255krTIHCph4EydFhQQGRrh37ROt9+9IrvLXYy47o4AhWBDY7vvRNaMN0GcI8zoSbt7lwF5K9kaKv12X18RJPKhRtwlWFRpQjrVfgvl3iYjY1PyHihAGvGNEg/DPHVayjxdQi1jaIfmC3t7z/dUuZVzYrFFYZyMb+ozm2C48wPiaeCaC//eI8/qFXHmk=
   run:
-    - "composer install --no-dev"
+    - "npm install cross-env"
     - "npm install"
+    - "composer install"
     - "php artisan migrate"
-    - "npm run production"
   app: cotama
   on:
     repo: Ealenn/Cotama-API
