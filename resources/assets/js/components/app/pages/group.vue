@@ -78,7 +78,7 @@
               </v-toolbar>
 
               <v-list subheader>
-                <v-list-tile avatar v-for="user in group.users" :key="user.email" @click="">
+                <v-list-tile avatar v-for="user in group.users" :key="user.email" @click="$router.push('/profil/' + user.id)">
                   <v-list-tile-avatar>
                     <v-avatar size="48">
                       <img :src="getAvatar(user.email)">
@@ -163,7 +163,9 @@
         .then(response => {
           this.groups = response.data
           this.loading = false
-        });
+        }).catch(response => {
+          window.location = '/login'
+      });
     }
   }
 </script>

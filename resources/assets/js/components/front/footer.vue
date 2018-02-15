@@ -1,7 +1,7 @@
 <template>
   <v-footer>
     <v-layout row wrap align-center class="no-margin">
-      <v-flex xs12 style="background-color: #495061;">
+      <v-flex xs12 primary>
         <div class="to-top-wrap">
           <a href="#top" class="top"><i class="fa fa-angle-up"></i></a>
         </div>
@@ -11,8 +11,8 @@
           {{ 'front.footer.dev-by' | translate }}
         </p>
       </v-flex>
-      <v-flex xs12 row style="background-color: #3D4351;z-index: 2;">
-        <p class="white--text px-3 py-3">
+      <v-flex xs12 row style="z-index: 2" secondary>
+        <p class="white--text px-3 py-3 pb-0 mb-0">
           {{ 'front.footer.by' | translate }}
         </p>
       </v-flex>

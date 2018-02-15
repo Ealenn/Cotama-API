@@ -6,8 +6,8 @@
         <Drawer></Drawer>
         <v-layout row pb-2 style="margin-top: -40px;">
           <v-flex xs8 offset-xs2>
-            <v-card class="card--flex-toolbar">
-              <ToolBar dark></ToolBar>
+            <v-card class="card--flex-toolbar" style="box-shadow: none!important;">
+              <ToolBar dark class="elevation-1"></ToolBar>
               <v-divider></v-divider>
               <v-card-text class="pb-5">
                 <v-container fluid>
@@ -43,7 +43,8 @@
     transition: opacity 0s
   }
   .fade-enter, .fade-leave-active {
-    opacity: 0
+    opacity: 0;
+    display: none;
   }
 </style>
 
@@ -61,7 +62,6 @@
       // Get User
       axios.get('/api/users')
         .then(response => {
-          // console.log(response.data);
           this.$store.state.user = response.data
         });
     },

@@ -17,5 +17,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.0.0/masonry.pkgd.min.js"></script>
   <script src="{{ mix('js/app.js') }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114107514-1"></script>
 </body>
 </html>

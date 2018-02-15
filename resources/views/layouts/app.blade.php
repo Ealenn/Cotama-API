@@ -19,5 +19,6 @@
   </div>
 
   <script src="{{ mix('js/front.js') }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114107514-1"></script>
 </body>
 </html>

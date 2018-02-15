@@ -10,8 +10,6 @@ import VueAxios from 'vue-axios'
 import axios from 'axios'
 import Vuex from 'vuex'
 import vuexI18n from 'vuex-i18n'
-// import translationFr from './translate/fr'
-// import translationEn from './translate/en'
 
 Vue.use(VueScrollReveal)
 Vue.use(Vuex)
@@ -29,6 +27,9 @@ axios.defaults.headers.common = {
   'X-Requested-With': 'XMLHttpRequest',
 };
 axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
+// Google Tag
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-114107514-1');
 
 // axios.get('/api/users')
 // .then(response => {
