@@ -27,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return $this
+     */
+    public function foyers()
+    {
+        return $this->belongsToMany('App\Models\Foyers\Foyer')
+            ->withPivot('isAdmin');
+    }
+
 }

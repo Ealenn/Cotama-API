@@ -19,7 +19,7 @@ class FoyerAPIController extends Controller
     /**
      * Tout les foyers | All homes
      *
-     * - Retourne tout les foyer de l'utilisateur connecté
+     * - Retourne tout les foyers de l'utilisateur connecté
      * - Returns all home of the logged-in user
      *
      * @param  \Illuminate\Http\Request  $request
@@ -28,7 +28,7 @@ class FoyerAPIController extends Controller
     public function index(Request $request)
     {
         $User = $request->user();
-        $Foyers = Foyer::getAllForUser($User->id);
+        $Foyers = FoyerService::getFoyers($User->id);
 
         return response()->json($Foyers);
     }
@@ -67,7 +67,7 @@ class FoyerAPIController extends Controller
      */
     public function store(FoyerSaveRequest $request)
     {
-        $Foyer = Foyer::create($request->user(), $request->all());
+        $Foyer = FoyerService::create($request->all());
         return response()->json($Foyer);
     }
 

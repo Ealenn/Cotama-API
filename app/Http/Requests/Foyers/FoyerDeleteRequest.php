@@ -5,7 +5,7 @@ namespace App\Http\Requests\Foyers;
 use App\Models\Foyers\Foyer;
 use Illuminate\Foundation\Http\FormRequest;
 
-class FoyerPutRequest extends FormRequest
+class FoyerDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,8 +14,7 @@ class FoyerPutRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = $this->user();
-        return FoyerService::isAdminFoyer($user, $this->route('foyer'));
+        return FoyerService::isInFoyer($this->input('userId'), $this->input('foyerId'));
     }
 
     /**
@@ -26,7 +25,8 @@ class FoyerPutRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'min:4|max:255'
+            'foyerId' => 'numeric',
+            'userId' => 'numeric'
         ];
     }
 
@@ -34,5 +34,4 @@ class FoyerPutRequest extends FormRequest
     {
         return true;
     }
-
 }

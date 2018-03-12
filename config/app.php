@@ -189,6 +189,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Cotama\ServiceProvider\FoyerRepositoryServiceProvider::class,
+        App\Cotama\ServiceProvider\FoyerServiceServiceProvider::class,
+
         /*
          * Libs
          */
@@ -242,6 +245,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'FoyerService' => App\Cotama\Facades\FoyerServiceFacade::class,
     ],
 
 ];

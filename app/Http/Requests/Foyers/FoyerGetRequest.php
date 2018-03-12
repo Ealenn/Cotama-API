@@ -16,7 +16,7 @@ class FoyerGetRequest extends FormRequest
     {
         $user = $this->user();
         $foyer = Foyer::find($this->route('foyer'))->first();
-        return Foyer::isAdminFoyer($user, $foyer);
+        return FoyerService::isAdminFoyer($user, $foyer);
     }
 
     /**

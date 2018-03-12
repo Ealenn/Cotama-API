@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Foyers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Foyers\FoyerDeleteRequest;
 use App\Http\Requests\Foyers\FoyerJoinRequest;
-use App\Models\Foyers\Foyer;
 
 /**
  * Class FoyerUserAPIController
@@ -25,11 +25,19 @@ class FoyerUserAPIController extends Controller
      */
     public function store(FoyerJoinRequest $request)
     {
-        Foyer::addUserFoyer(
+       FoyerService::addUserToFoyer(
             $request->user(),
-            $request->Foyer
+            $request->Foyer,
+            false
         );
 
         return response()->json($request->Foyer);
+    }
+
+    public function delete(FoyerDeleteRequest $request, $foyerId, $userId)
+    {
+        FoyerService::delete($foyerId, $userId);
+
+        return response()->json(['isDeleted'=>true]);
     }
 }
