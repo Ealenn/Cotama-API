@@ -27,4 +27,4 @@ php artisan api:generate --routePrefix="*"
 
 # REST Client
 - Client ID: 1
-- Client Secret: 7kg6CljRJqhBlYd17jynfPRy1xCuKWmJ8g1qN6Ny
+- Client Secret: pIYkcoucqLtcaRvxnGY4yaGU15WxXu5w7bhhFQW9
