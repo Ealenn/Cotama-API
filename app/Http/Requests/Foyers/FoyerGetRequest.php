@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Foyers;
 
+use App\Facades\FoyerFacade;
 use App\Models\Foyers\Foyer;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -14,9 +15,10 @@ class FoyerGetRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = $this->user();
-        $foyer = Foyer::find($this->route('foyer'))->first();
-        return Foyer::isAdminFoyer($user, $foyer);
+        return FoyerFacade::isInFoyer(
+          $this->user(),
+          Foyer::find($this->route('foyer'))->first()
+        );
     }
 
     /**

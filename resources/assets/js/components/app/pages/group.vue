@@ -49,11 +49,11 @@
         :cols="{default: 2, 1300: 2, 950: 1, 600: 1}"
         :gutter="{default: '30px', 700: '15px'}"
       >
-          <v-flex class="item" v-for="group in groups" :key="group.foyer.id">
+          <v-flex class="item" v-for="group in groups" :key="group.id">
               <v-card class="mb-3 mr-3">
               <v-toolbar flat dark color="accent">
                 <v-toolbar-title class="white--text">
-                  {{ group.foyer.content.name }}
+                  {{ group.name }}
                 </v-toolbar-title>
                 <v-spacer> </v-spacer>
                 <v-menu offset-y>
@@ -61,7 +61,7 @@
                     <v-icon>more_vert</v-icon>
                   </v-btn>
                   <v-list>
-                    <v-list-tile @click="updateGroup(group)" v-if="isAdmin(group.foyer, connectedUser)">
+                    <v-list-tile @click="updateGroup(group)" v-if="isAdmin(group, connectedUser)">
                       <v-list-tile-title>
                         <v-icon>edit</v-icon>
                         {{ 'app.pages.group.menu.update' | translate }}
@@ -77,34 +77,34 @@
                 </v-menu>
               </v-toolbar>
 
-              <v-list subheader>
-                <v-list-tile avatar v-for="user in group.users" :key="user.email" @click="$router.push('/profil/' + user.id)">
-                  <v-list-tile-avatar>
-                    <v-avatar size="48">
-                      <img :src="getAvatar(user.email)">
-                    </v-avatar>
-                  </v-list-tile-avatar>
+                <v-list subheader>
+                  <v-list-tile avatar v-for="user in group.users" :key="user.email" @click="$router.push('/profil/' + user.id)">
+                    <v-list-tile-avatar>
+                      <v-avatar size="48">
+                        <img :src="getAvatar(user.email)">
+                      </v-avatar>
+                    </v-list-tile-avatar>
 
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{ user.first_name }} ({{ user.pseudo }})</v-list-tile-title>
+                    <v-list-tile-content>
+                      <v-list-tile-title>{{ user.first_name }} ({{ user.pseudo }})</v-list-tile-title>
 
-                    <v-list-tile-sub-title v-if="isAdmin(group.foyer, user)">
-                      {{ 'app.pages.group.admin' | translate }}
-                    </v-list-tile-sub-title>
+                      <v-list-tile-sub-title v-if="isAdmin(group, user)">
+                        {{ 'app.pages.group.admin' | translate }}
+                      </v-list-tile-sub-title>
 
-                    <v-list-tile-sub-title v-else>
-                      {{ 'app.pages.group.member' | translate }}
-                    </v-list-tile-sub-title>
+                      <v-list-tile-sub-title v-else>
+                        {{ 'app.pages.group.member' | translate }}
+                      </v-list-tile-sub-title>
 
-                  </v-list-tile-content>
+                    </v-list-tile-content>
 
-                  <v-list-tile-action v-if="isAdmin(group.foyer, connectedUser) || connectedUser.email === user.email">
-                    <v-btn icon ripple @click="">
-                      <v-icon color="grey lighten-1">delete</v-icon>
-                    </v-btn>
-                  </v-list-tile-action>
-                </v-list-tile>
-              </v-list>
+                    <v-list-tile-action v-if="isAdmin(group, connectedUser) || connectedUser.email === user.email">
+                      <v-btn icon ripple @click="removeUser(group, user)">
+                        <v-icon color="grey lighten-1">delete</v-icon>
+                      </v-btn>
+                    </v-list-tile-action>
+                  </v-list-tile>
+                </v-list>
 
             </v-card>
           </v-flex>
@@ -140,8 +140,11 @@
       },
       isAdmin: function (foyer, user) {
         var emailsAdmin = []
-        foyer.admin.forEach((i) => {
-          emailsAdmin.push(i.email)
+        foyer.users.forEach((i) => {
+          console.log(foyer)
+          if(i.pivot.is_admin = true){
+            emailsAdmin.push(i.email)
+          }
         })
         return emailsAdmin.includes(user.email)
       },
@@ -150,11 +153,21 @@
           {
             name: 'GroupAddView',
             params: {
-              id: group.foyer.content.id,
-              name: group.foyer.content.name
+              id: group.id,
+              name: group.name
             }
           }
         )
+      },
+      removeUser: function (group, user) {
+        this.loading = true
+        axios.get('/api/foyer/' + group.id + '/exclude/' + user.id)
+          .then(response => {
+            this.groups = response.data
+            this.loading = false
+          }).catch(response => {
+          window.location = '/login'
+        });
       }
     },
     mounted () {

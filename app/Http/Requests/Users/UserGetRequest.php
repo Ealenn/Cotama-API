@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Users;
 
-use App\Models\Foyers\Foyer;
+use App\Facades\FoyerFacade;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UserGetRequest extends FormRequest
@@ -14,7 +14,7 @@ class UserGetRequest extends FormRequest
      */
     public function authorize()
     {
-        return Foyer::isFriend($this->user(), $this->user) || $this->user->id == $this->user()->id;
+        return FoyerFacade::isFriend($this->user(), $this->user) || $this->user->id == $this->user()->id;
     }
 
     /**

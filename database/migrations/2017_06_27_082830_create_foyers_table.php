@@ -20,7 +20,7 @@ class CreateFoyersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('foyers_users', function (Blueprint $table) {
+        Schema::create('foyer_user', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('foyer_id')->unsigned()->index();

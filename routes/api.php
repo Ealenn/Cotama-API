@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     // FoyerUser
     Route::post('foyer/join', 'Foyers\FoyerUserAPIController@store');
+    Route::delete('foyer/{foyer}/exclude/{user}', 'Foyers\FoyerUserAPIController@exclude');
 });
 
 // Add User

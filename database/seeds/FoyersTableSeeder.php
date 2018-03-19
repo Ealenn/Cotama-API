@@ -12,11 +12,8 @@ class FoyersTableSeeder extends Seeder
     public function run()
     {
         $Foyer = factory(\App\Models\Foyers\Foyer::class)->make();
-        \App\Models\Foyers\Foyer::create(
-            \App\User::find(1),
-            [
-              'name' => $Foyer->name
-            ]
-        );
+        \App\Facades\FoyerFacade::create(\App\User::find(1), [
+            'name' => $Foyer->name
+        ]);
     }
 }

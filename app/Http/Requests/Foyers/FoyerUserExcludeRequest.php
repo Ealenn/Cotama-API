@@ -5,7 +5,7 @@ namespace App\Http\Requests\Foyers;
 use App\Facades\FoyerFacade;
 use Illuminate\Foundation\Http\FormRequest;
 
-class FoyerPutRequest extends FormRequest
+class FoyerUserExcludeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,8 +14,12 @@ class FoyerPutRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = $this->user();
-        return FoyerFacade::isAdmin($user, $this->route('foyer'));
+        return $this->route('user')->id === $this->user()->id ||
+            FoyerFacade::isAdmin(
+              $this->user(),
+              $this->route('foyer')
+            )
+        ;
     }
 
     /**
@@ -26,7 +30,6 @@ class FoyerPutRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'min:4|max:255'
         ];
     }
 

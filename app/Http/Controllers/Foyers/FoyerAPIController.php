@@ -7,6 +7,7 @@ use App\Http\Requests\Foyers\FoyerGetRequest;
 use App\Http\Requests\Foyers\FoyerPutRequest;
 use App\Http\Requests\Foyers\FoyerSaveRequest;
 use App\Models\Foyers\Foyer;
+use App\Services\FoyerService;
 use Illuminate\Http\Request;
 
 /**
@@ -27,10 +28,12 @@ class FoyerAPIController extends Controller
      */
     public function index(Request $request)
     {
-        $User = $request->user();
-        $Foyers = Foyer::getAllForUser($User->id);
-
-        return response()->json($Foyers);
+      return response()->json(
+        $request->user()
+          ->foyers()
+          ->with('users')
+          ->get()
+      );
     }
 
     /**
@@ -52,8 +55,12 @@ class FoyerAPIController extends Controller
      */
     public function show(FoyerGetRequest $request, Foyer $foyer)
     {
-        $all = $foyer->getAll();
-        return response()->json($all);
+      return response()->json(
+        $foyer
+          ->with('users')
+          ->where('id', '=', $foyer->id) // Pour un seul foyer ($foyer)
+          ->get()
+      );
     }
 
     /**
@@ -63,11 +70,12 @@ class FoyerAPIController extends Controller
      * - Returns the created house
      *
      * @param  \App\Http\Requests\Foyers\FoyerSaveRequest $request
+     * @param FoyerService $foyerService
      * @return \Illuminate\Http\Response
      */
-    public function store(FoyerSaveRequest $request)
+    public function store(FoyerSaveRequest $request, FoyerService $foyerService)
     {
-        $Foyer = Foyer::create($request->user(), $request->all());
+        $Foyer = $foyerService->create($request->user(), $request->all());
         return response()->json($Foyer);
     }
 

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Foyers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Foyers\FoyerJoinRequest;
+use App\Http\Requests\Foyers\FoyerUserExcludeRequest;
 use App\Models\Foyers\Foyer;
+use App\Services\FoyerService;
+use App\User;
 
 /**
  * Class FoyerUserAPIController
@@ -18,18 +21,29 @@ class FoyerUserAPIController extends Controller
      * Rejoindre un foyer | Joining a Home
      *
      * ### Erreurs possible
-     * - 404 : Clef invalide | Invalid key
+     * - 403 : Clef invalide | Invalid key
      *
      * @param \App\Http\Requests\Foyers\FoyerJoinRequest $request
+     * @param FoyerService $foyerService
      * @return \Illuminate\Http\Response
      */
-    public function store(FoyerJoinRequest $request)
+    public function store(FoyerJoinRequest $request, FoyerService $foyerService)
     {
-        Foyer::addUserFoyer(
+        $foyerService->addUser(
             $request->user(),
             $request->Foyer
         );
 
-        return response()->json($request->Foyer);
+        return response()->json(
+          $request->Foyer
+            ->with('users')
+            ->get()
+        );
+    }
+
+    public function exclude(FoyerUserExcludeRequest $request, Foyer $Foyer, User $User, FoyerService $foyerService)
+    {
+        $result = $foyerService->deleteUser($User, $Foyer);
+        return response()->json($Foyer, $result ? 200 : 403);
     }
 }
