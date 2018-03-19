@@ -23,6 +23,9 @@ class FoyerUserAPIController extends Controller
      * ### Erreurs possible
      * - 403 : Clef invalide | Invalid key
      *
+     * ### Return
+     * Foyer with users
+     *
      * @param \App\Http\Requests\Foyers\FoyerJoinRequest $request
      * @param FoyerService $foyerService
      * @return \Illuminate\Http\Response
@@ -41,9 +44,29 @@ class FoyerUserAPIController extends Controller
         );
     }
 
+    /**
+     * Exclure un membre / Exclude member
+     *
+     * ### Erreurs possible
+     * - 403 : pas les droits nécessaires ou le membre n'est pas dans le foyer
+     *
+     * ### Return
+     * Foyer with users
+     * @param FoyerUserExcludeRequest $request
+     * @param Foyer $Foyer
+     * @param User $User
+     * @param FoyerService $foyerService
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function exclude(FoyerUserExcludeRequest $request, Foyer $Foyer, User $User, FoyerService $foyerService)
     {
         $result = $foyerService->deleteUser($User, $Foyer);
-        return response()->json($Foyer, $result ? 200 : 403);
+        return response()
+          ->json(
+            $Foyer->with('users')
+              ->where('id', '=', $Foyer->id)
+              ->get(),
+            $result ? 200 : 403
+          );
     }
 }

@@ -111,4 +111,17 @@ class FoyerService {
     }
     return false;
   }
+
+  /**
+   * Remove Foyer
+   * @param Foyer $foyer
+   * @throws \Exception
+   */
+  public function deleteFoyer(Foyer $foyer)
+  {
+    foreach ($foyer->users as $user) {
+      $this->deleteUser($user, $foyer);
+    }
+    $foyer->delete();
+  }
 }

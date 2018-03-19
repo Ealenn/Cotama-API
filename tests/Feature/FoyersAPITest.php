@@ -133,6 +133,23 @@ class FoyersAPITest extends PassportTestCase
 
   /*
    * -----------------------------
+   *          DELETE FOYER
+   * -----------------------------
+   */
+
+  public function testDeleteFoyer()
+  {
+    $Foyer = FoyerFacade::Create($this->user, ["name"=>"DeLeTeUnIqUeFoRtEsT"]);
+
+    $response = $this->delete('/api/foyer/'.$Foyer->id, $this->headers);
+    $json = json_decode($response->getContent());
+
+    $this->assertEquals(200, $response->getStatusCode());
+    $this->assertEquals(false, FoyerFacade::isInFoyer($this->user, $Foyer));
+  }
+
+  /*
+   * -----------------------------
    *          DELETE USER FOYER
    * -----------------------------
    */

@@ -83,4 +83,13 @@ class FoyerServiceTest extends PassportTestCase
     $this->assertEquals(false, FoyerFacade::isInFoyer($User, $newFoyer));
   }
 
+  public function testDeleteFoyer()
+  {
+    $Foyer = FoyerFacade::Create($this->user, ["name"=>"UnIqUeFoRtEsT"]);
+    FoyerFacade::deleteFoyer($Foyer);
+
+    $this->assertEquals(0, Foyer::where('name', 'UnIqUeFoRtEsT')->count());
+    $this->assertEquals(false, FoyerFacade::isInFoyer($this->user, $Foyer));
+  }
+
 }

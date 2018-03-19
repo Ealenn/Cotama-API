@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Foyers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Foyers\FoyerGetRequest;
 use App\Http\Requests\Foyers\FoyerPutRequest;
+use App\Http\Requests\Foyers\FoyerRemoveRequest;
 use App\Http\Requests\Foyers\FoyerSaveRequest;
 use App\Models\Foyers\Foyer;
 use App\Services\FoyerService;
@@ -97,5 +98,27 @@ class FoyerAPIController extends Controller
     {
         $foyer->update($request->all());
         return response()->json($foyer);
+    }
+
+    /**
+     * Supprimer un Foyer / Remove house
+     *
+     * ### /!\ **Attention : Warning**
+     * - L'utilisateur doit être admin du foyer
+     * - The user must be admin of home
+     *
+     * @param FoyerRemoveRequest $request
+     * @param Foyer $Foyer
+     * @param FoyerService $foyerService
+     * @return \Illuminate\Http\Response
+     */
+    public function remove(FoyerRemoveRequest $request, Foyer $Foyer, FoyerService $foyerService)
+    {
+      try {
+        $foyerService->deleteFoyer($Foyer);
+        return $this->index($request);
+      } catch (\Exception $exception) {
+        return $request->json("", 500);
+      }
     }
 }

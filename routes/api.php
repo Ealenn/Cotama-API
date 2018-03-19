@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     // Foyer
     Route::get('foyer', 'Foyers\FoyerAPIController@index');
     Route::get('foyer/{foyer}', 'Foyers\FoyerAPIController@show');
+    Route::delete('foyer/{foyer}', 'Foyers\FoyerAPIController@remove');
     Route::post('foyer', 'Foyers\FoyerAPIController@store');
     Route::match(['put', 'patch'], 'foyer/{foyer}', 'Foyers\FoyerAPIController@update');
 
