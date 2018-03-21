@@ -21,8 +21,7 @@ class UsersAPITest extends PassportTestCase
     public function testGetUserNotConnected()
     {
         $response = $this->call('GET', '/api/users');
-        $this->assertNotEquals(200, $response->getStatusCode());
-        $this->assertNotEquals(500, $response->getStatusCode());
+        $this->assertEquals(401, $response->getStatusCode());
     }
 
     public function testGetUserWithConnection()
@@ -51,7 +50,7 @@ class UsersAPITest extends PassportTestCase
 
         $response = $this->call('PUT', '/api/users', $arrayUser);
         $this->assertNotEquals(200, $response->getStatusCode());
-        $this->assertNotEquals(500, $response->getStatusCode());
+        $this->assertEquals(401, $response->getStatusCode());
     }
 
     public function testPutUserWithConnection()

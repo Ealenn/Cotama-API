@@ -11,11 +11,9 @@
 |
 */
 
-Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
-
-Route::get('/game', 'HomeController@front')->middleware('auth');
-Route::get('/game/{vue?}', 'HomeController@front')->middleware('auth');
-
-Auth::routes();
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/', function () {
+  return response()->json([
+    'online' => true,
+    'time' => new DateTime()
+  ]);
+});

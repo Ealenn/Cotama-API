@@ -23,10 +23,7 @@ class FoyersAPITest extends PassportTestCase
   public function testGetFoyerNotConnected()
   {
     $response = $this->call('GET', '/api/foyer');
-    $this->assertNotEquals(200, $response->getStatusCode());
-    $this->assertNotEquals(500, $response->getStatusCode());
-    // Si Ajax : 401
-    // Si Navigateur Redirection
+    $this->assertEquals(401, $response->getStatusCode());
   }
 
   public function testGetFoyers()
