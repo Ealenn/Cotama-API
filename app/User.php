@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
       return $this->belongsToMany('App\Models\Foyers\Foyer');
     }
+
+    public function prefs()
+    {
+      return $this->hasMany('App\Models\Prefs');
+    }
 }

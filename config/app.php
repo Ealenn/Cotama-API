@@ -198,6 +198,7 @@ return [
          * Services Cotama
          */
         App\Providers\FoyerServiceProvider::class,
+        App\Providers\PrefsServiceProvider::class,
     ],
 
     /*

@@ -32,5 +32,15 @@ $factory->define(App\Models\Foyers\Foyer::class, function (Faker\Generator $fake
 });
 
 $factory->define(App\Models\Foyers\FoyerUser::class, function (Faker\Generator $faker) {
-    return [];
+  return [];
+});
+
+$factory->define(App\Models\Housework::class, function (Faker\Generator $faker) {
+  return [
+    'fr' => $faker->name,
+    'en' => $faker->name,
+    'de' => $faker->name,
+    'color' => $faker->name,
+    'b64' => $faker->name
+  ];
 });
