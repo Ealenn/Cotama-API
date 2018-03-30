@@ -16,7 +16,7 @@ class PrefsService {
    */
   public function get(User $user, Housework $housework) : Prefs
   {
-    $Pref = Prefs::where('housework_id', '=', $housework->id)
+    $Pref = Prefs::with(['housework', 'user'])->where('housework_id', '=', $housework->id)
       ->where('user_id', '=', $user->id)
       ->first();
 
