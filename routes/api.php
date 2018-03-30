@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     // Prefs
     Route::get('prefs', 'PrefController@index');
     Route::get('prefs/{housework}', 'PrefController@show');
+    Route::get('prefs/user/{user}', 'PrefController@showAllForUser');
     Route::put('prefs/{housework}', 'PrefController@update');
 });
 

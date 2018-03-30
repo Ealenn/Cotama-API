@@ -2,7 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Facades\FoyerFacade;
+use App\Models\Foyers\Foyer;
 use App\Models\Housework;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Tests\PassportTestCase;
 
@@ -39,6 +42,29 @@ class PrefsTest extends PassportTestCase
 
     $this->assertEquals(200, $response->getStatusCode());
     $this->assertEquals(2, sizeof($json));
+  }
+
+  public function testGetPrefsForFriend()
+  {
+    $User = factory(User::class)->create();
+    $Foyer = factory(Foyer::class)->make();
+    $newFoyer = FoyerFacade::create($User, ['name' => $Foyer->name]);
+    FoyerFacade::addUser($this->user, $newFoyer);
+
+    $response = $this->get('/api/prefs/user/' . $User->id, $this->headers);
+    $json = json_decode($response->getContent());
+
+    $this->assertEquals(200, $response->getStatusCode());
+  }
+
+  public function testGetPrefsForNotFriend()
+  {
+    $User = factory(User::class)->create();
+
+    $response = $this->get('/api/prefs/user/' . $User->id, $this->headers);
+    $json = json_decode($response->getContent());
+
+    $this->assertEquals(403, $response->getStatusCode());
   }
 
   public function testGetPrefsOneHouseworks()

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Prefs\PrefGetRequest;
 use App\Http\Requests\Prefs\PrefPutRequest;
 use App\Models\Housework;
 use App\Services\PrefsService;
+use App\User;
 use Illuminate\Http\Request;
 
 /**
@@ -35,6 +37,20 @@ class PrefController extends Controller
   {
     return response()->json(
       $prefs->get($request->user(), $housework)
+    );
+  }
+
+  /**
+   * Display the specified prefs for user.
+   * @param PrefGetRequest $request
+   * @param PrefsService $prefs
+   * @param User $user
+   * @return mixed
+   */
+  public function showAllForUser(PrefGetRequest $request, PrefsService $prefs, User $user)
+  {
+    return response()->json(
+      $prefs->getAll($user)
     );
   }
 
