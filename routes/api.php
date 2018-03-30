@@ -33,6 +33,11 @@ Route::group(['middleware' => 'auth:api'], function () {
     // Housework
     Route::get('houseworks', 'HouseworkController@index');
     Route::get('houseworks/{housework}', 'HouseworkController@show');
+
+    // Prefs
+    Route::get('prefs', 'PrefController@index');
+    Route::get('prefs/{housework}', 'PrefController@show');
+    Route::put('prefs/{housework}', 'PrefController@update');
 });
 
 // Add User
