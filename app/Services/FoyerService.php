@@ -20,7 +20,7 @@ class FoyerService {
     $newFoyer->save();
     $this->addUser($user, $newFoyer, true);
 
-    event(new \App\Events\FoyerWasCreated($user, $newFoyer));
+    event(new \App\Events\FoyerWasCreated($newFoyer));
     return $newFoyer;
   }
 
