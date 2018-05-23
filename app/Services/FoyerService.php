@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\FoyerUserJoin;
 use App\User;
 use \App\Models\Foyers\Foyer;
 
@@ -35,7 +36,7 @@ class FoyerService {
     if(!$this->isInFoyer($user, $foyer))
     {
       $foyer->users()->attach($user, ['is_admin' => $isAdmin]);
-      event(new \App\Events\FoyerUserJoin($user, $foyer));
+      event(new FoyerUserJoin($foyer, $user));
       return true;
     }
     return false;

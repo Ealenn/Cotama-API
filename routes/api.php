@@ -12,6 +12,14 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('mail', function () {
+    $foyer = App\Models\Foyers\Foyer::find(3);
+    $user = \App\User::find(1);
+    event(new \App\Events\FoyerWasCreated($foyer));
+    $service = new \App\Services\FoyerService();
+    $service->addUser($user,$foyer);
+    event(new \App\Events\FoyerUserDelete($foyer));
+});
 
 Route::group(['middleware' => 'auth:api'], function () {
     // Users
