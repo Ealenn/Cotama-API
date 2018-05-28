@@ -24,11 +24,13 @@ class FoyerWasCreatedListener
     public function handle(FoyerWasCreated $event)
     {
         $users = $event->getFoyer()->users;
-        if($users->count() == 1){
-            Mail::to($users)->send(new MailFoyerWasCreated($event->getFoyer()));
-        }
 
-        /*$to = $users->transform(function($item, $key){return $item->email;})->toArray();
-        Mail::to($to)->send(new MailFoyerWasCreated($event->getFoyer()));*/
+        if($users->count() == 1){
+            Mail::to($users)->send(
+              new MailFoyerWasCreated(
+                $event->getUser(),
+                $event->getFoyer())
+            );
+        }
     }
 }

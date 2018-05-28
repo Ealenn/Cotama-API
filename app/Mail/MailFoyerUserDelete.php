@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\Foyers\Foyer;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -11,13 +12,16 @@ class MailFoyerUserDelete extends Mailable
 {
     use Queueable, SerializesModels;
     protected $foyer;
+    protected $user;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Foyer $foyer)
+    public function __construct(User $user, Foyer $foyer)
     {
+        $this->user = $user;
         $this->foyer=$foyer;
     }
 
@@ -28,9 +32,10 @@ class MailFoyerUserDelete extends Mailable
      */
     public function build()
     {
-        return $this->view('FoyerUserDelete')
+        return $this->markdown('FoyerUserDelete')
             ->with([
-                'name' => $this->foyer->name,
+                'User' => $this->user,
+                'Foyer' => $this->foyer
             ]);
     }
 }

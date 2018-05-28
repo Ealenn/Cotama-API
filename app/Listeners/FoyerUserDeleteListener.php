@@ -25,6 +25,11 @@ class FoyerUserDeleteListener
     {
         $users = $event->getFoyer()->users;
 
-        Mail::to($users)->send(new MailFoyerUserDelete($event->getFoyer()));
+        Mail::to($users)->send(
+            new MailFoyerUserDelete(
+                $event->getUser(),
+                $event->getFoyer()
+            )
+        );
     }
 }

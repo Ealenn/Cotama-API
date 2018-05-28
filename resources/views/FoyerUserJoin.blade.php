@@ -1,7 +1,15 @@
-<p>Bonjour,</p>
+@extends('layout')
 
-<p>Vous avez rejoint le foyer {{$name}} </p>
+@section('content')
 
-<p>Merci et bon jeux.</p>
-<p>Cordialement,</p>
-<p>l'équipe cotama !!!</p>
+  Bonjour {{ $User->first_name }}.
+
+  Tu viens de rejoindre l'escouade "**{{ $Foyer->name }}**".
+
+  Bien évidemment, je tiens tout d'abord à te féliciter.
+
+  Tu prête désormais allégeance à celle-ci.
+
+  Les chemins de poussière ne vous font pas peur.
+
+@endsection

@@ -11,17 +11,19 @@ use Illuminate\Queue\SerializesModels;
 class MailWarnUserJoin extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $user;
     protected $foyer;
-    protected  $user;
+    protected $userWasJoin;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Foyer $foyer, User $user)
+    public function __construct(User $user, Foyer $foyer, User $userWasJoin)
     {
-        $this->foyer=$foyer;
-        $this->user=$user;
+        $this->user = $user;
+        $this->foyer = $foyer;
+        $this->userWasJoin = $userWasJoin;
     }
 
     /**
@@ -31,10 +33,11 @@ class MailWarnUserJoin extends Mailable
      */
     public function build()
     {
-        return $this->view('FoyerWarnUserJoin')
+        return $this->markdown('FoyerWarnUserJoin')
             ->with([
-                'name' => $this->foyer->name,
-                'userName' => $this->user->pseudo,
+                'User' => $this->user,
+                'Foyer' => $this->foyer,
+                'UserJoin' => $this->userWasJoin,
             ]);
     }
 }

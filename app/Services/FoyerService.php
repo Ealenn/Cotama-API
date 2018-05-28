@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\FoyerUserDelete;
 use App\Events\FoyerUserJoin;
 use App\User;
 use \App\Models\Foyers\Foyer;
@@ -20,7 +21,7 @@ class FoyerService {
     $newFoyer->save();
     $this->addUser($user, $newFoyer, true);
 
-    event(new \App\Events\FoyerWasCreated($newFoyer));
+    event(new \App\Events\FoyerWasCreated($user, $newFoyer));
     return $newFoyer;
   }
 
@@ -108,6 +109,7 @@ class FoyerService {
   {
     if($this->isInFoyer($user, $foyer)){
       $foyer->users()->detach($user);
+      event(new FoyerUserDelete($user, $foyer));
       return true;
     }
     return false;

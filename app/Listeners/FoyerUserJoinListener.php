@@ -6,6 +6,7 @@ namespace App\Listeners;
 use App\Events\FoyerUserJoin;
 use App\Mail\MailFoyerUserJoin;
 use App\Mail\MailWarnUserJoin;
+use App\User;
 use Illuminate\Support\Facades\Mail;
 
 class FoyerUserJoinListener
@@ -25,7 +26,26 @@ class FoyerUserJoinListener
      */
     public function handle(FoyerUserJoin $event)
     {
-        Mail::to($event->getUser())->send(new MailFoyerUserJoin($event->getFoyer()));
-        Mail::to($event->getFoyer()->users)->send(new MailWarnUserJoin($event->getFoyer(), $event->getUser()));
+        $AllUsersInFoyer = $event->getFoyer()->users; // All users
+        $UserWasJoin = $event->getUser();
+
+        foreach ($AllUsersInFoyer as $User) {
+          if ($User->email != $UserWasJoin->email) {
+            Mail::to($User)->send(
+              new MailWarnUserJoin(
+                $User,
+                $event->getFoyer(),
+                $UserWasJoin
+              )
+            );
+          }
+        }
+
+        Mail::to($UserWasJoin)->send(
+          new MailFoyerUserJoin(
+            $UserWasJoin,
+            $event->getFoyer()
+          )
+        );
     }
 }

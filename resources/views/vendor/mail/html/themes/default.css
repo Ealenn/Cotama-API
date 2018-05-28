@@ -283,3 +283,17 @@ img {
     font-size: 15px;
     text-align: center;
 }
+
+/* CARDS */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.card img {
+  height: 200px
+}
+
+.card .container {
+  padding: 2px 16px;
+}
