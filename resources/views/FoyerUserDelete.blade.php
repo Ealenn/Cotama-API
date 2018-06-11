@@ -2,7 +2,7 @@
 
 @section('content')
 
-  Bonjour {{ $User->first_name }}.
+  @lang('mail.header', ['name' => $User->first_name])
 
   L'heure est grave.
 

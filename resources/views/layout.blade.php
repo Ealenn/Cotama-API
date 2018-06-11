@@ -8,8 +8,7 @@
 
   @yield('content')
 
-  Au plaisir de vous revoir,
-  L'équipe Cotama.
+  @lang('mail.footer')
 
   @slot('footer')
     @component('mail::footer')

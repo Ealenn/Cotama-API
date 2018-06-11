@@ -2,7 +2,7 @@
 
 @section('content')
 
-  Bonjour {{ $User->first_name }}.
+  @lang('mail.header', ['name' => $User->first_name])
 
   Bonne nouvelle : **{{ $UserJoin->first_name }}** se porte volontaire pour faire la vaiselle tout les jours !
 
