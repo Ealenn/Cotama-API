@@ -4,12 +4,10 @@
 
   @lang('mail.header', ['name' => $User->first_name])
 
-  Tu viens de rejoindre l'escouade "**{{ $Foyer->name }}**".
 
-  Bien évidemment, je tiens tout d'abord à te féliciter.
+  @lang('mail.foyer.userjoin.intro', ['group' => $Foyer->name])
 
-  Tu prête désormais allégeance à celle-ci.
 
-  Les chemins de poussière ne vous font pas peur.
+  @lang('mail.foyer.userjoin.outro')
 
 @endsection

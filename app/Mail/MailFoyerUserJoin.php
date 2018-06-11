@@ -33,6 +33,7 @@ class MailFoyerUserJoin extends Mailable
     public function build()
     {
         return $this->markdown('FoyerUserJoin')
+            ->subject(__('mail.foyer.userjoin.subject', ['group' => $this->foyer->name]))
             ->with([
                 'User' => $this->user,
                 'Foyer' => $this->foyer

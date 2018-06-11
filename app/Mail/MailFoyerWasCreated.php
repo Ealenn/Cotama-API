@@ -33,6 +33,7 @@ class MailFoyerWasCreated extends Mailable
     public function build()
     {
         return $this->markdown('FoyerWasCreated')
+                    ->subject(__('mail.foyer.created.subject', ['name' => $this->user->pseudo]))
                     ->with([
                         'User' => $this->user,
                         'Foyer' => $this->foyer

@@ -34,6 +34,7 @@ class MailWarnUserJoin extends Mailable
     public function build()
     {
         return $this->markdown('FoyerWarnUserJoin')
+            ->subject(__('mail.foyer.warnuser.subject', ['name' => $this->userWasJoin->pseudo]))
             ->with([
                 'User' => $this->user,
                 'Foyer' => $this->foyer,

@@ -33,6 +33,7 @@ class MailFoyerUserDelete extends Mailable
     public function build()
     {
         return $this->markdown('FoyerUserDelete')
+            ->subject(__('mail.foyer.userdelete.subject'))
             ->with([
                 'User' => $this->user,
                 'Foyer' => $this->foyer

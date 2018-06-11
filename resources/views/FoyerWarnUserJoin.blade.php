@@ -4,10 +4,10 @@
 
   @lang('mail.header', ['name' => $User->first_name])
 
-  Bonne nouvelle : **{{ $UserJoin->first_name }}** se porte volontaire pour faire la vaiselle tout les jours !
 
-  En fait, c'est faux. *Et c'est bien dommage*.
+  @lang('mail.foyer.warnuser.intro', ['name' => $UserJoin->first_name])
 
-  Mais tu peux maintenant compter sur lui ! Il viens de rejoindre ton esquade "**{{ $Foyer->name }}**".
+
+  @lang('mail.foyer.warnuser.outro', ['group' =>  $Foyer->name])
 
 @endsection
