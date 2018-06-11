@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mailgun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'l.david174@laposte.net'),
-        'name' => env('MAIL_FROM_NAME', 'COTAMA TEAM'),
+        'address' => env('MAIL_FROM_ADDRESS', 'noreply@cotama.net'),
+        'name' => env('MAIL_FROM_NAME', 'COTAMA'),
     ],
 
     /*
