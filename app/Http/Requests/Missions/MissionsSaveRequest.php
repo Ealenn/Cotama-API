@@ -31,7 +31,10 @@ class MissionsSaveRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:4|max:255'
+            'title' => 'required|min:4|max:255',
+            'date_start' => 'required|date',
+            'housework_ids' => 'required|array',
+            'foyer_id' => 'required|integer'
         ];
     }
 

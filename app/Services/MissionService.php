@@ -4,6 +4,7 @@ namespace App\Services;
 
 
 use App\Models\Foyers\Foyer;
+use App\Models\Foyers\FoyerUser;
 use App\Models\Mission\Mission;
 use App\User;
 use Illuminate\Support\Collection;
@@ -66,6 +67,17 @@ class MissionService {
      */
     public function getMissions(int $id) : Collection {
         return Mission::where('foyer_id', $id)->with('houseworks', 'user', 'foyer')->get();
+    }
+
+    /**
+     * Récupère les missions
+     * @param int $id
+     * @return mixed
+     */
+    public function getMissionsByUserId(int $id) : Collection {
+        $foyer_ids = FoyerUser::where('user_id', $id)->pluck('foyer_id');
+        $missions = Mission::whereIn('foyer_id', $foyer_ids)->orderBy('date_start', 'asc')->with('houseworks', 'user', 'foyer')->get();
+        return $missions;
     }
 
     /**

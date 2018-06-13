@@ -42,6 +42,16 @@ class MissionApiController extends Controller
     }
 
     /**
+     * Récupère toutes les missions de l'user connecté.
+     * @param Request $request
+     * @param MissionService $missionService
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function showAll(Request $request, MissionService $missionService) {
+        return response()->json($missionService->getMissionsByUserId(Auth::user()->id));
+    }
+
+    /**
      * Ajoute une mission.
      * @param MissionsSaveRequest $request
      * @param MissionService $missionsService
