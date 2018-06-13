@@ -30,6 +30,11 @@ class Foyer extends Model
         return $this->belongsToMany('App\User')->withPivot('is_admin')->withTimestamps();
     }
 
+    public function missions()
+    {
+        return $this->hasMany('App\Models\Mission\Mission', 'foyer_id');
+    }
+
 
 
 

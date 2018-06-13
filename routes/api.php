@@ -39,6 +39,12 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('prefs/{housework}', 'PrefController@show');
     Route::get('prefs/user/{user}', 'PrefController@showAllForUser');
     Route::put('prefs/{housework}', 'PrefController@update');
+
+    // Missions
+    Route::get('missions/foyer/{foyer}', 'MissionApiController@index');
+    Route::get('missions/{mission}', 'MissionApiController@show');
+    Route::post('missions', 'MissionApiController@store');
+    Route::delete('missions/{mission}', 'MissionApiController@delete');
 });
 
 // Add User
