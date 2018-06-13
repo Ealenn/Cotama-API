@@ -76,7 +76,7 @@ class MissionService {
      */
     public function getMissionsByUserId(int $id) : Collection {
         $foyer_ids = FoyerUser::where('user_id', $id)->pluck('foyer_id');
-        $missions = Mission::whereIn('foyer_id', $foyer_ids)->orderBy('date_start', 'asc')->with('houseworks', 'user', 'foyer')->get();
+        $missions = Mission::whereIn('foyer_id', $foyer_ids)->orderBy('date_start', 'desc')->with('houseworks', 'user', 'foyer')->get();
         return $missions;
     }
 

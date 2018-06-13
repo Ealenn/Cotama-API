@@ -18,7 +18,7 @@ class Mission extends Model
 
     public function foyer()
     {
-        return $this->belongsTo('App\Models\Foyers\Foyer');
+        return $this->belongsTo('App\Models\Foyers\Foyer')->with('users');
     }
 
     public function user()
