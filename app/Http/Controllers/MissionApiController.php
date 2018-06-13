@@ -58,7 +58,7 @@ class MissionApiController extends Controller
      * @return la mission créée au format json
      */
     public function store(MissionsSaveRequest $request, MissionService $missionsService) {
-        $params = ['title' => $request->get('title'), 'date_start' => $request->get('date_start')];
+        $params = ['title' => $request->get('title'), 'date_start' => date('Y-m-d H:i:s', $request->get('date_start'))];
         $foyer =  Foyer::find($request->get('foyer_id'));
         $houseworkIds = $request->get('housework_ids');
 

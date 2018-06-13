@@ -32,7 +32,7 @@ class MissionsSaveRequest extends FormRequest
     {
         return [
             'title' => 'required|min:4|max:255',
-            'date_start' => 'required|date',
+            'date_start' => 'required',
             'housework_ids' => 'required|array',
             'foyer_id' => 'required|integer'
         ];

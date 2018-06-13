@@ -60,23 +60,25 @@ class MissionApiTest extends PassportTestCase
         $this->assertEquals(2, \count($json));
 
         $responseSecond = $this->delete('/api/missions/' . $mission->id, $this->headers);
-        $jsonSecond = json_decode($responseSecond->getContent())[0];
 
+        $jsonSecond = json_decode($responseSecond->getContent());
         $this->assertEquals(200, $responseSecond->getStatusCode());
-        $this->assertEquals(1, \count($response));
+        $this->assertEquals(1, \count($jsonSecond));
+
+        $jsonSecond = $jsonSecond[0];
         $this->assertEquals("aSecondTitle", $jsonSecond->title);
         $this->assertEquals("2018/01/01", $jsonSecond->date_start);
     }
 
     public function testPostMission(){
         $Foyer = FoyerFacade::create($this->user, ["name"=>"Test"]);
-        $response = $this->post('/api/missions', ['foyer_id'=>$Foyer->id, 'title'=>'aTitle', 'housework_ids'=>[1,2,3], 'date_start'=>'2018/12/12'], $this->headers);
+        $response = $this->post('/api/missions', ['foyer_id'=>$Foyer->id, 'title'=>'aTitle', 'housework_ids'=>[1,2,3], 'date_start'=>'1528884365'], $this->headers);
         $json = json_decode($response->getContent());
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals($Foyer->name, $json->foyer->name);
         $this->assertEquals($this->user->pseudo, $json->user->pseudo);
         $this->assertEquals('aTitle', $json->title);
-        $this->assertEquals('2018/12/12', $json->date_start);
+        $this->assertEquals('2018-06-13 10:06:05', $json->date_start);
     }
 }
