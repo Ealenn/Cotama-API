@@ -13,7 +13,7 @@ class Mission extends Model
 
     public function houseworks()
     {
-        return $this->belongsToMany('App\Models\Housework', 'mission_housework')->withPivot('user_id')->withTimestamps();
+        return $this->belongsToMany('App\Models\Housework', 'mission_housework')->withPivot('user_id', 'state_id')->withTimestamps();
     }
 
     public function foyer()
@@ -24,5 +24,10 @@ class Mission extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function state()
+    {
+        return $this->belongsTo('App\Models\State\State');
     }
 }
