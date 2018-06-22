@@ -1,5 +1,7 @@
 # Cotama API 
-[![Build Status](https://travis-ci.com/Ealenn/Cotama-API.svg?token=pzmEyFi3sozv2AJWbeuN&branch=master)](https://travis-ci.com/Ealenn/Cotama-API) [![Dependency Status](https://www.versioneye.com/user/projects/59ddd48d0fb24f20fe62e78e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/59ddd48d0fb24f20fe62e78e) 
+[![Build Status](https://travis-ci.com/Ealenn/Cotama-API.svg?token=pzmEyFi3sozv2AJWbeuN&branch=master)](https://travis-ci.com/Ealenn/Cotama-API) 
+
+![](https://github.com/Ealenn/Cotama-API/blob/master/.pictures/graph.png?raw=true)
 
 # Install 
 ```sh
@@ -22,9 +24,42 @@ php artisan passport:client --password
 
 # Generate documentation 
 ```
-php artisan api:generate --routePrefix="*"
+composer generate-docs
 ```
 
-# REST Client
-- Client ID: 1
-- Client Secret: pIYkcoucqLtcaRvxnGY4yaGU15WxXu5w7bhhFQW9
+# Config Vars
+- APP_ENV=prod
+- APP_URL=...
+- APP_KEY=...
+- APP_DEBUG=false
+- APP_LOG_LEVEL=debug
+
+> Database
+- DB_CONNECTION=mysql
+- DB_DATABASE=...
+- DB_PASSWORD=...
+- DB_USERNAME=...
+
+## Mailgun
+> Mail
+- MAIL_DRIVER=mailgun
+- MAIL_FROM_NAME=Cotama
+
+> MailGun
+- MAILGUN_DOMAIN=...
+- MAILGUN_PUBLIC_KEY=...
+- MAILGUN_SMTP_LOGIN=...
+- MAILGUN_SMTP_SERVER=smtp.mailgun.org
+- MAILGUN_SMTP_PASSWORD=...
+- MAILGUN_API_KEY=...
+- MAILGUN_SECRET=...
+- MAILGUN_SMTP_PORT=587
+
+## Maildev
+> Mail
+- MAIL_DRIVER=smtp
+- MAIL_HOST=localhost
+- MAIL_PORT=1025
+- MAIL_USERNAME=null
+- MAIL_PASSWORD=null
+- MAIL_ENCRYPTION=null
