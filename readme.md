@@ -3,6 +3,12 @@
 
 ![](https://github.com/Ealenn/Cotama-API/blob/master/.pictures/graph.png?raw=true)
 
+# Documentation 
+> Read the Docs: [https://ealenn.github.io/Cotama-API](https://ealenn.github.io/Cotama-API)
+```
+composer generate-docs
+```
+
 # Install 
 ```sh
 composer install
@@ -21,11 +27,6 @@ php artisan passport:client --password
 - **Email** : dev@cotama.fr
 - **Password** : tLH9cAZ3gbfNgaWB
 - **Pseudo** : DevTama
-
-# Generate documentation 
-```
-composer generate-docs
-```
 
 # Config Vars
 - APP_ENV=prod
