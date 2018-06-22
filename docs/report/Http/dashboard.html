@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/ealen/Documents/Projets/Github/Cotama-API/app/Http</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../.css/style.css" rel="stylesheet" type="text/css">
+  <link href="../.css/custom.css" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]>
+  <script src="../.js/html5shiv.min.js"></script>
+  <script src="../.js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">/Users/ealen/Documents/Projets/Github/Cotama-API/app</a></li>
+        <li><a href="index.html">Http</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/Auth/ForgotPasswordController.php.html#13">App\Http\Controllers\Auth\ForgotPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#13">App\Http\Controllers\Auth\LoginController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#15">App\Http\Controllers\Auth\RegisterController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/ResetPasswordController.php.html#13">App\Http\Controllers\Auth\ResetPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#8">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Users/UserGetRequest.php.html#8">App\Http\Requests\Users\UserGetRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/HouseworkController.php.html#14">App\Http\Controllers\HouseworkController</a></td><td class="text-right">33%</td></tr>
+       <tr><td><a href="Requests/Foyers/FoyerSaveRequest.php.html#7">App\Http\Requests\Foyers\FoyerSaveRequest</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Requests/Missions/MissionsSaveRequest.php.html#14">App\Http\Requests\Missions\MissionsSaveRequest</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Requests/Prefs/PrefGetRequest.php.html#8">App\Http\Requests\Prefs\PrefGetRequest</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Requests/Prefs/PrefPutRequest.php.html#7">App\Http\Requests\Prefs\PrefPutRequest</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Requests/Users/UserPutRequest.php.html#7">App\Http\Requests\Users\UserPutRequest</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Requests/Users/UserSaveRequest.php.html#7">App\Http\Requests\Users\UserSaveRequest</a></td><td class="text-right">66%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Requests/Users/UserGetRequest.php.html#8">App\Http\Requests\Users\UserGetRequest</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#8">App\Http\Middleware\RedirectIfAuthenticated</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Requests/Prefs/PrefGetRequest.php.html#8">App\Http\Requests\Prefs\PrefGetRequest</a></td><td class="text-right">4</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controllers/Auth/ForgotPasswordController.php.html#33"><abbr title="App\Http\Controllers\Auth\ForgotPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Foyers/FoyerPutRequest.php.html#33"><abbr title="App\Http\Requests\Foyers\FoyerPutRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Users/UserPutRequest.php.html#35"><abbr title="App\Http\Requests\Users\UserPutRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Users/UserGetRequest.php.html#32"><abbr title="App\Http\Requests\Users\UserGetRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Users/UserGetRequest.php.html#25"><abbr title="App\Http\Requests\Users\UserGetRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Users/UserGetRequest.php.html#15"><abbr title="App\Http\Requests\Users\UserGetRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Prefs/PrefPutRequest.php.html#31"><abbr title="App\Http\Requests\Prefs\PrefPutRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Prefs/PrefGetRequest.php.html#31"><abbr title="App\Http\Requests\Prefs\PrefGetRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Missions/MissionsSaveRequest.php.html#41"><abbr title="App\Http\Requests\Missions\MissionsSaveRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Missions/MissionsDeleteRequest.php.html#34"><abbr title="App\Http\Requests\Missions\MissionsDeleteRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Foyers/FoyerUserExcludeRequest.php.html#36"><abbr title="App\Http\Requests\Foyers\FoyerUserExcludeRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Foyers/FoyerSaveRequest.php.html#31"><abbr title="App\Http\Requests\Foyers\FoyerSaveRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Foyers/FoyerRemoveRequest.php.html#35"><abbr title="App\Http\Requests\Foyers\FoyerRemoveRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Foyers/FoyerJoinRequest.php.html#40"><abbr title="App\Http\Requests\Foyers\FoyerJoinRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/LoginController.php.html#40"><abbr title="App\Http\Controllers\Auth\LoginController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Foyers/FoyerGetRequest.php.html#36"><abbr title="App\Http\Requests\Foyers\FoyerGetRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#18"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/UsersAPIController.php.html#62"><abbr title="App\Http\Controllers\UsersAPIController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/MissionApiController.php.html#50"><abbr title="App\Http\Controllers\MissionApiController::showAll">showAll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/HouseworkController.php.html#44"><abbr title="App\Http\Controllers\HouseworkController::updateState">updateState</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/ResetPasswordController.php.html#40"><abbr title="App\Http\Controllers\Auth\ResetPasswordController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#70"><abbr title="App\Http\Controllers\Auth\RegisterController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#53"><abbr title="App\Http\Controllers\Auth\RegisterController::validator">validator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/Auth/RegisterController.php.html#42"><abbr title="App\Http\Controllers\Auth\RegisterController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Requests/Users/UserSaveRequest.php.html#35"><abbr title="App\Http\Requests\Users\UserSaveRequest::wantsJson">wantsJson</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controllers/MissionApiController.php.html#78"><abbr title="App\Http\Controllers\MissionApiController::delete">delete</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Controllers/Foyers/FoyerAPIController.php.html#115"><abbr title="App\Http\Controllers\Foyers\FoyerAPIController::remove">remove</abbr></a></td><td class="text-right">50%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Middleware/RedirectIfAuthenticated.php.html#18"><abbr title="App\Http\Middleware\RedirectIfAuthenticated::handle">handle</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Requests/Users/UserGetRequest.php.html#15"><abbr title="App\Http\Requests\Users\UserGetRequest::authorize">authorize</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controllers/Foyers/FoyerAPIController.php.html#115"><abbr title="App\Http\Controllers\Foyers\FoyerAPIController::remove">remove</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Controllers/MissionApiController.php.html#78"><abbr title="App\Http\Controllers\MissionApiController::delete">delete</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 6.0.7</a> using <a href="https://secure.php.net/" target="_top">PHP 7.2.6</a> with <a href="https://xdebug.org/">Xdebug 2.6.0</a> and <a href="https://phpunit.de/">PHPUnit 7.2.4</a> at Fri Jun 22 12:37:15 UTC 2018.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../.js/jquery.min.js" type="text/javascript"></script>
+  <script src="../.js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../.js/holder.min.js" type="text/javascript"></script>
+  <script src="../.js/d3.min.js" type="text/javascript"></script>
+  <script src="../.js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([6,0,0,0,1,0,0,6,5,4,1,7], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([25,0,0,0,0,0,2,0,1,1,0,42], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controllers\/Auth\/ForgotPasswordController.php.html#13\">App\\Http\\Controllers\\Auth\\ForgotPasswordController<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/LoginController.php.html#13\">App\\Http\\Controllers\\Auth\\LoginController<\/a>"],[0,3,"<a href=\"Controllers\/Auth\/RegisterController.php.html#15\">App\\Http\\Controllers\\Auth\\RegisterController<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/ResetPasswordController.php.html#13\">App\\Http\\Controllers\\Auth\\ResetPasswordController<\/a>"],[100,0,"<a href=\"Controllers\/Controller.php.html#10\">App\\Http\\Controllers\\Controller<\/a>"],[88.23529411764706,6,"<a href=\"Controllers\/Foyers\/FoyerAPIController.php.html#19\">App\\Http\\Controllers\\Foyers\\FoyerAPIController<\/a>"],[100,3,"<a href=\"Controllers\/Foyers\/FoyerUserAPIController.php.html#17\">App\\Http\\Controllers\\Foyers\\FoyerUserAPIController<\/a>"],[33.33333333333333,3,"<a href=\"Controllers\/HouseworkController.php.html#14\">App\\Http\\Controllers\\HouseworkController<\/a>"],[78.57142857142857,6,"<a href=\"Controllers\/MissionApiController.php.html#14\">App\\Http\\Controllers\\MissionApiController<\/a>"],[100,4,"<a href=\"Controllers\/PrefController.php.html#16\">App\\Http\\Controllers\\PrefController<\/a>"],[90.9090909090909,4,"<a href=\"Controllers\/UsersAPIController.php.html#16\">App\\Http\\Controllers\\UsersAPIController<\/a>"],[100,0,"<a href=\"Kernel.php.html#7\">App\\Http\\Kernel<\/a>"],[100,0,"<a href=\"Middleware\/EncryptCookies.php.html#7\">App\\Http\\Middleware\\EncryptCookies<\/a>"],[78.94736842105263,5,"<a href=\"Middleware\/Language.php.html#9\">App\\Http\\Middleware\\Language<\/a>"],[0,2,"<a href=\"Middleware\/RedirectIfAuthenticated.php.html#8\">App\\Http\\Middleware\\RedirectIfAuthenticated<\/a>"],[100,0,"<a href=\"Middleware\/TrimStrings.php.html#7\">App\\Http\\Middleware\\TrimStrings<\/a>"],[100,0,"<a href=\"Middleware\/VerifyCsrfToken.php.html#7\">App\\Http\\Middleware\\VerifyCsrfToken<\/a>"],[80,3,"<a href=\"Requests\/Foyers\/FoyerGetRequest.php.html#9\">App\\Http\\Requests\\Foyers\\FoyerGetRequest<\/a>"],[71.42857142857143,4,"<a href=\"Requests\/Foyers\/FoyerJoinRequest.php.html#8\">App\\Http\\Requests\\Foyers\\FoyerJoinRequest<\/a>"],[75,3,"<a href=\"Requests\/Foyers\/FoyerPutRequest.php.html#8\">App\\Http\\Requests\\Foyers\\FoyerPutRequest<\/a>"],[80,3,"<a href=\"Requests\/Foyers\/FoyerRemoveRequest.php.html#8\">App\\Http\\Requests\\Foyers\\FoyerRemoveRequest<\/a>"],[66.66666666666666,3,"<a href=\"Requests\/Foyers\/FoyerSaveRequest.php.html#7\">App\\Http\\Requests\\Foyers\\FoyerSaveRequest<\/a>"],[83.33333333333334,4,"<a href=\"Requests\/Foyers\/FoyerUserExcludeRequest.php.html#8\">App\\Http\\Requests\\Foyers\\FoyerUserExcludeRequest<\/a>"],[75,4,"<a href=\"Requests\/Missions\/MissionsDeleteRequest.php.html#10\">App\\Http\\Requests\\Missions\\MissionsDeleteRequest<\/a>"],[66.66666666666666,3,"<a href=\"Requests\/Missions\/MissionsSaveRequest.php.html#14\">App\\Http\\Requests\\Missions\\MissionsSaveRequest<\/a>"],[66.66666666666666,4,"<a href=\"Requests\/Prefs\/PrefGetRequest.php.html#8\">App\\Http\\Requests\\Prefs\\PrefGetRequest<\/a>"],[66.66666666666666,3,"<a href=\"Requests\/Prefs\/PrefPutRequest.php.html#7\">App\\Http\\Requests\\Prefs\\PrefPutRequest<\/a>"],[0,4,"<a href=\"Requests\/Users\/UserGetRequest.php.html#8\">App\\Http\\Requests\\Users\\UserGetRequest<\/a>"],[66.66666666666666,3,"<a href=\"Requests\/Users\/UserPutRequest.php.html#7\">App\\Http\\Requests\\Users\\UserPutRequest<\/a>"],[66.66666666666666,3,"<a href=\"Requests\/Users\/UserSaveRequest.php.html#7\">App\\Http\\Requests\\Users\\UserSaveRequest<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controllers\/Auth\/ForgotPasswordController.php.html#33\">App\\Http\\Controllers\\Auth\\ForgotPasswordController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/LoginController.php.html#40\">App\\Http\\Controllers\\Auth\\LoginController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/RegisterController.php.html#42\">App\\Http\\Controllers\\Auth\\RegisterController::__construct<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/RegisterController.php.html#53\">App\\Http\\Controllers\\Auth\\RegisterController::validator<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/RegisterController.php.html#70\">App\\Http\\Controllers\\Auth\\RegisterController::create<\/a>"],[0,1,"<a href=\"Controllers\/Auth\/ResetPasswordController.php.html#40\">App\\Http\\Controllers\\Auth\\ResetPasswordController::__construct<\/a>"],[100,1,"<a href=\"Controllers\/Foyers\/FoyerAPIController.php.html#30\">App\\Http\\Controllers\\Foyers\\FoyerAPIController::index<\/a>"],[100,1,"<a href=\"Controllers\/Foyers\/FoyerAPIController.php.html#57\">App\\Http\\Controllers\\Foyers\\FoyerAPIController::show<\/a>"],[100,1,"<a href=\"Controllers\/Foyers\/FoyerAPIController.php.html#77\">App\\Http\\Controllers\\Foyers\\FoyerAPIController::store<\/a>"],[100,1,"<a href=\"Controllers\/Foyers\/FoyerAPIController.php.html#97\">App\\Http\\Controllers\\Foyers\\FoyerAPIController::update<\/a>"],[50,2,"<a href=\"Controllers\/Foyers\/FoyerAPIController.php.html#115\">App\\Http\\Controllers\\Foyers\\FoyerAPIController::remove<\/a>"],[100,1,"<a href=\"Controllers\/Foyers\/FoyerUserAPIController.php.html#33\">App\\Http\\Controllers\\Foyers\\FoyerUserAPIController::store<\/a>"],[100,2,"<a href=\"Controllers\/Foyers\/FoyerUserAPIController.php.html#61\">App\\Http\\Controllers\\Foyers\\FoyerUserAPIController::exclude<\/a>"],[100,1,"<a href=\"Controllers\/HouseworkController.php.html#21\">App\\Http\\Controllers\\HouseworkController::index<\/a>"],[100,1,"<a href=\"Controllers\/HouseworkController.php.html#32\">App\\Http\\Controllers\\HouseworkController::show<\/a>"],[0,1,"<a href=\"Controllers\/HouseworkController.php.html#44\">App\\Http\\Controllers\\HouseworkController::updateState<\/a>"],[100,1,"<a href=\"Controllers\/MissionApiController.php.html#27\">App\\Http\\Controllers\\MissionApiController::index<\/a>"],[100,1,"<a href=\"Controllers\/MissionApiController.php.html#39\">App\\Http\\Controllers\\MissionApiController::show<\/a>"],[0,1,"<a href=\"Controllers\/MissionApiController.php.html#50\">App\\Http\\Controllers\\MissionApiController::showAll<\/a>"],[100,1,"<a href=\"Controllers\/MissionApiController.php.html#60\">App\\Http\\Controllers\\MissionApiController::store<\/a>"],[50,2,"<a href=\"Controllers\/MissionApiController.php.html#78\">App\\Http\\Controllers\\MissionApiController::delete<\/a>"],[100,1,"<a href=\"Controllers\/PrefController.php.html#24\">App\\Http\\Controllers\\PrefController::index<\/a>"],[100,1,"<a href=\"Controllers\/PrefController.php.html#36\">App\\Http\\Controllers\\PrefController::show<\/a>"],[100,1,"<a href=\"Controllers\/PrefController.php.html#50\">App\\Http\\Controllers\\PrefController::showAllForUser<\/a>"],[100,1,"<a href=\"Controllers\/PrefController.php.html#64\">App\\Http\\Controllers\\PrefController::update<\/a>"],[100,1,"<a href=\"Controllers\/UsersAPIController.php.html#24\">App\\Http\\Controllers\\UsersAPIController::index<\/a>"],[100,1,"<a href=\"Controllers\/UsersAPIController.php.html#38\">App\\Http\\Controllers\\UsersAPIController::store<\/a>"],[0,1,"<a href=\"Controllers\/UsersAPIController.php.html#62\">App\\Http\\Controllers\\UsersAPIController::show<\/a>"],[100,1,"<a href=\"Controllers\/UsersAPIController.php.html#76\">App\\Http\\Controllers\\UsersAPIController::update<\/a>"],[100,1,"<a href=\"Middleware\/Language.php.html#11\">App\\Http\\Middleware\\Language::__construct<\/a>"],[73.33333333333333,4,"<a href=\"Middleware\/Language.php.html#24\">App\\Http\\Middleware\\Language::handle<\/a>"],[0,2,"<a href=\"Middleware\/RedirectIfAuthenticated.php.html#18\">App\\Http\\Middleware\\RedirectIfAuthenticated::handle<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerGetRequest.php.html#16\">App\\Http\\Requests\\Foyers\\FoyerGetRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerGetRequest.php.html#29\">App\\Http\\Requests\\Foyers\\FoyerGetRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Foyers\/FoyerGetRequest.php.html#36\">App\\Http\\Requests\\Foyers\\FoyerGetRequest::wantsJson<\/a>"],[80,2,"<a href=\"Requests\/Foyers\/FoyerJoinRequest.php.html#17\">App\\Http\\Requests\\Foyers\\FoyerJoinRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerJoinRequest.php.html#33\">App\\Http\\Requests\\Foyers\\FoyerJoinRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Foyers\/FoyerJoinRequest.php.html#40\">App\\Http\\Requests\\Foyers\\FoyerJoinRequest::wantsJson<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerPutRequest.php.html#15\">App\\Http\\Requests\\Foyers\\FoyerPutRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerPutRequest.php.html#26\">App\\Http\\Requests\\Foyers\\FoyerPutRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Foyers\/FoyerPutRequest.php.html#33\">App\\Http\\Requests\\Foyers\\FoyerPutRequest::wantsJson<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerRemoveRequest.php.html#15\">App\\Http\\Requests\\Foyers\\FoyerRemoveRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerRemoveRequest.php.html#29\">App\\Http\\Requests\\Foyers\\FoyerRemoveRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Foyers\/FoyerRemoveRequest.php.html#35\">App\\Http\\Requests\\Foyers\\FoyerRemoveRequest::wantsJson<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerSaveRequest.php.html#14\">App\\Http\\Requests\\Foyers\\FoyerSaveRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerSaveRequest.php.html#24\">App\\Http\\Requests\\Foyers\\FoyerSaveRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Foyers\/FoyerSaveRequest.php.html#31\">App\\Http\\Requests\\Foyers\\FoyerSaveRequest::wantsJson<\/a>"],[100,2,"<a href=\"Requests\/Foyers\/FoyerUserExcludeRequest.php.html#15\">App\\Http\\Requests\\Foyers\\FoyerUserExcludeRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Foyers\/FoyerUserExcludeRequest.php.html#30\">App\\Http\\Requests\\Foyers\\FoyerUserExcludeRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Foyers\/FoyerUserExcludeRequest.php.html#36\">App\\Http\\Requests\\Foyers\\FoyerUserExcludeRequest::wantsJson<\/a>"],[100,2,"<a href=\"Requests\/Missions\/MissionsDeleteRequest.php.html#17\">App\\Http\\Requests\\Missions\\MissionsDeleteRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Missions\/MissionsDeleteRequest.php.html#28\">App\\Http\\Requests\\Missions\\MissionsDeleteRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Missions\/MissionsDeleteRequest.php.html#34\">App\\Http\\Requests\\Missions\\MissionsDeleteRequest::wantsJson<\/a>"],[100,1,"<a href=\"Requests\/Missions\/MissionsSaveRequest.php.html#21\">App\\Http\\Requests\\Missions\\MissionsSaveRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Missions\/MissionsSaveRequest.php.html#31\">App\\Http\\Requests\\Missions\\MissionsSaveRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Missions\/MissionsSaveRequest.php.html#41\">App\\Http\\Requests\\Missions\\MissionsSaveRequest::wantsJson<\/a>"],[100,2,"<a href=\"Requests\/Prefs\/PrefGetRequest.php.html#15\">App\\Http\\Requests\\Prefs\\PrefGetRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Prefs\/PrefGetRequest.php.html#25\">App\\Http\\Requests\\Prefs\\PrefGetRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Prefs\/PrefGetRequest.php.html#31\">App\\Http\\Requests\\Prefs\\PrefGetRequest::wantsJson<\/a>"],[100,1,"<a href=\"Requests\/Prefs\/PrefPutRequest.php.html#14\">App\\Http\\Requests\\Prefs\\PrefPutRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Prefs\/PrefPutRequest.php.html#24\">App\\Http\\Requests\\Prefs\\PrefPutRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Prefs\/PrefPutRequest.php.html#31\">App\\Http\\Requests\\Prefs\\PrefPutRequest::wantsJson<\/a>"],[0,2,"<a href=\"Requests\/Users\/UserGetRequest.php.html#15\">App\\Http\\Requests\\Users\\UserGetRequest::authorize<\/a>"],[0,1,"<a href=\"Requests\/Users\/UserGetRequest.php.html#25\">App\\Http\\Requests\\Users\\UserGetRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Users\/UserGetRequest.php.html#32\">App\\Http\\Requests\\Users\\UserGetRequest::wantsJson<\/a>"],[100,1,"<a href=\"Requests\/Users\/UserPutRequest.php.html#14\">App\\Http\\Requests\\Users\\UserPutRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Users\/UserPutRequest.php.html#24\">App\\Http\\Requests\\Users\\UserPutRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Users\/UserPutRequest.php.html#35\">App\\Http\\Requests\\Users\\UserPutRequest::wantsJson<\/a>"],[100,1,"<a href=\"Requests\/Users\/UserSaveRequest.php.html#14\">App\\Http\\Requests\\Users\\UserSaveRequest::authorize<\/a>"],[100,1,"<a href=\"Requests\/Users\/UserSaveRequest.php.html#24\">App\\Http\\Requests\\Users\\UserSaveRequest::rules<\/a>"],[0,1,"<a href=\"Requests\/Users\/UserSaveRequest.php.html#35\">App\\Http\\Requests\\Users\\UserSaveRequest::wantsJson<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

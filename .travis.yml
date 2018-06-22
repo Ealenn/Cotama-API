@@ -3,6 +3,9 @@ php:
   - 7.1.9
 os:
   - linux
+cache:
+  directories:
+    - $HOME/.composer/cache/files
 install:
   - composer install --dev
   - wget https://phar.phpunit.de/phpunit.phar
