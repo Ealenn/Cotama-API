@@ -11,6 +11,8 @@ install:
   - php phpunit.phar --version
 script:
   - travis_wait php phpunit.phar
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: heroku
   api_key:

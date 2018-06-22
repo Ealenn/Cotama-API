@@ -1,5 +1,5 @@
 # Cotama API 
-[![Build Status](https://travis-ci.com/Ealenn/Cotama-API.svg?token=pzmEyFi3sozv2AJWbeuN&branch=master)](https://travis-ci.com/Ealenn/Cotama-API) 
+[![Build Status](https://travis-ci.com/Ealenn/Cotama-API.svg?token=pzmEyFi3sozv2AJWbeuN&branch=master)](https://travis-ci.com/Ealenn/Cotama-API) [![codecov](https://codecov.io/gh/Ealenn/Cotama-API/branch/master/graph/badge.svg)](https://codecov.io/gh/Ealenn/Cotama-API)
 
 ![](https://github.com/Ealenn/Cotama-API/blob/master/.pictures/graph.png?raw=true)
 
@@ -65,6 +65,7 @@ php artisan passport:client --password
 - MAIL_PASSWORD=null
 - MAIL_ENCRYPTION=null
 
+___
 # GNU GENERAL PUBLIC LICENSE
                         Version 3, 29 June 2007
 
