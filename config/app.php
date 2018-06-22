@@ -200,6 +200,7 @@ return [
         App\Providers\FoyerServiceProvider::class,
         App\Providers\PrefsServiceProvider::class,
         App\Providers\MissionServiceProvider::class,
+        App\Providers\HouseworkServiceProvider::class,
     ],
 
     /*

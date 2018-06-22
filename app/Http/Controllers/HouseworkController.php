@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Housework;
+use App\Services\HouseworkService;
+use App\Services\MissionService;
 use Illuminate\Http\Request;
 
 /**
@@ -30,5 +32,20 @@ class HouseworkController extends Controller
     public function show(Request $request, Housework $housework)
     {
         return response()->json($housework);
+    }
+
+    /**
+     * Met à jour l'état d'une tâche.
+     * @param Request $request
+     * @param HouseworkService $houseworkService
+     * @param MissionService $missionService
+     * @return Json data
+     */
+    public function updateState(Request $request, HouseworkService $houseworkService, MissionService $missionService){
+        $params = $request->all();
+        $houseworkService->updateState($params);
+        $missionService->updateState($params);
+
+        return response()->json($missionService->getMissionById($params['mission_id']));
     }
 }
